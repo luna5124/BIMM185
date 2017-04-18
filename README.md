@@ -59,47 +59,14 @@ From the NCBI Genome database, download the genome annotation in tabular format 
 | 11 | COGS(s) |
 | 12 | Protein name |
 
-**Exercise problems and solutions:**
+**Exercise problems:**
 * What is the name (locus) and length of the largest protein?
-
-
-    ```
-    cut -f 7,10 table.txt | sort -k2nr | head -1
-    ```
 * What is the name and length of the smallest protein?
-
-
-    ```
-    cut -f 7,10 table.txt | sort -k2n | head -1
-    ```
-    
 * How many proteins are in the forward strand?
-
-    
-    ```
-    cut -f 5 table.txt | grep '+' | wc -l
-    ```
 * How many proteins are in the reverse strand?
-    
-    ```
-    cut -f 5 table.txt | grep '-' | wc -l
-    ```
 * What is the largest protein in the forward strand?
-
-    ```
-    cut -f 5,7,10 table.txt | grep '+' | sort -k3nr | head -1
-    ```
 * What is the largest protein in the reverse strand?
-
-    ```
-    cut -f 5,7,10 table.txt | grep '-' | sort -k3nr | head -1
-    ```
 * What are the gene names (locus) of all ribosomal proteins in the genome?
-
-    ```
-    cut -f 7,12 table.txt | grep ribosomal
-    ```
-
 
 ## Exercise 3
 * From the NCBI Genome database, download the DNA sequence of the full E. coli K12 MG1655 genome and its annotation in tabular format. Write a script that: 
