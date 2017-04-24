@@ -15,7 +15,7 @@ print ("Length")
 counts = {}
 freqs = []
 genes = []
-readfile = open("exercise2_modified.txt",'r')
+readfile = open("exercise3_modified.txt",'r')
 gene_prob = open("gene_prob.txt",'w')
 for line in readfile:
         freq = [0] * 64
@@ -67,6 +67,25 @@ for i in range(len(genes)):
         total_CUI += CUI
         CUIS.append(CUI)
         gene_prob.write(genes[i] + "\t" + str(CUI) + "\n")
+
+#scatter plot 1
+fig = plt.figure()
+#axes = plt.gca()
+#my_xticks = genes
+xs = [i for i in range(len(genes))]
+plt.plot(xs, CUIS)
+#plt.xticks(xs, my_xticks)
+plt.savefig('scatter1.png')
+
+#scatter plot 2
+fig = plt.figure()
+#axes = plt.gca()
+#my_xticks = genes
+xs = [i for i in range(len(genes))]
+plt.plot(xs, sorted(CUIS))
+#plt.xticks(xs, my_xticks)
+plt.savefig('scatter2.png')
+
 
 #Plot the histogram
 binwidth = 0.0001
