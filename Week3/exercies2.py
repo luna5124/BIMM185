@@ -12,4 +12,3 @@ for seq_record in SeqIO.parse(file,'fasta'):
 
 
 
-	#print(seq_record.seq)

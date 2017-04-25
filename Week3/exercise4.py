@@ -3,17 +3,13 @@ import gzip
 
 file = gzip.open("uniprot_sprot_archaea.dat.gz",'rt')
 
-print(type(file))
 
-ids = set()
+ids = set() #set to store all the tax_ids that have been encountered
 for seq_record in SwissProt.parse(file):
-	#print("hello")
-	#print(dir(seq_record))
-	
-	if ','.join(seq_record.taxonomy_id) in ids:
-		continue
-	else:
-		print(','.join(seq_record.taxonomy_id),seq_record.organism,','.join(seq_record.organism_classification),sep='\t')
-		ids.add(','.join(seq_record.taxonomy_id))
-	#print(seq_record.organism)
-	#print(seq_record.organism_classification)
+    
+    #if the same tax_id has appeared before, used to remove duplicate
+    if ','.join(seq_record.taxonomy_id) in ids:
+        continue
+    else:
+        print(','.join(seq_record.taxonomy_id),seq_record.organism,','.join(seq_record.organism_classification),sep='\t')
+        ids.add(','.join(seq_record.taxonomy_id))
