@@ -12,4 +12,5 @@ for seq_record in SwissProt.parse(file):
         continue
     else:
         print(','.join(seq_record.taxonomy_id),seq_record.organism,','.join(seq_record.organism_classification),sep='\t')
+        #print(seq_record.organism_classification)
         ids.add(','.join(seq_record.taxonomy_id))
