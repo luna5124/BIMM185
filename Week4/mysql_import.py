@@ -54,7 +54,7 @@ def read_genbank(input_files, myConnection):
     #open output files
     genome_file = open('genomes.tab','w')
     replicon_file = open('replicons.tab','w')
-    #gene_file = open('genes.tab','w')
+    gene_file = open('genes.tab','w')
     exon_file = open('exons.tab','w')
     synonym_file = open('gene_synonyms.tab','w')
     reference_file=open('ex_references.tab','w')
@@ -64,12 +64,12 @@ def read_genbank(input_files, myConnection):
     #set counter
     #genome_count = mx_genome_id
     #replicon_count = mx_replicon_id
-    #gene_count = mx_gene_id
+    gene_count = query_mx_gene_id(myConnection)
+    replicon_count = query_mx_replicon_id(myConnection)
 
     for input_file in input_files:
         #genome_count += 1
         cds_count = 0
-        #gene_count = 0
 
         file = gzip.open(input_file,'rt')
         inserted_genome = False
@@ -80,6 +80,7 @@ def read_genbank(input_files, myConnection):
 
         for seq_record in SeqIO.parse(file,'genbank'):
             #print(seq_record.dbxrefs)
+            replicon_count += 1
             taxid = ','.join(seq_record.features[0].qualifiers['db_xref']).replace('taxon:','')
             if not inserted_genome:
                 #insert new genome into DB
@@ -119,25 +120,14 @@ def read_genbank(input_files, myConnection):
             '''
             #insert new replicon into DB
             #genome_id, name, rep_size, type, structure, num_genes, accession
-            genome_id = genome_count
-            name = seq_record.description
-            rep_size = str(len(seq_record.seq))
-            if 'chromosome' in seq_record.description:
-                replicon_type = 'chromosome'
-            elif 'plasmid' in seq_record.description:
-                replicon_type = 'plasmid'
-            else:
-                replicon_type = 'unknown'
-            replicon_structure = seq_record.annotations['topology']
-            accession = seq_record.name
-            insert_replicons_table(myConnection, genome_id, name, rep_size, replicon_type, replicon_structure, accession)
-            replicon_count = query_mx_replicon_id(myConnection)
+            #insert_replicons_table(myConnection, genome_id, name, rep_size, replicon_type, replicon_structure, accession)
+            #replicon_count = query_mx_replicon_id(myConnection)
 
             #gene_count = 0
             for f in seq_record.features:
-                gene_file = open('genes.tab','w')
                 #check if it is CDS
                 if f.type == "CDS":
+                    gene_count += 1
                     #gene_count += 1
                     cds_count += 1
                     #check if it has protein_id
@@ -192,15 +182,26 @@ def read_genbank(input_files, myConnection):
                         gene_product = ','.join(f.qualifiers['product'])
                     else:
                         gene_product = '-'
-                    insert_genes_table(myConnection, protein_id, genome_count, replicon_count, strand, gene_name, locus_tag, exon_count, gene_length, gene_product)
-                    gene_count = query_mx_gene_id(myConnection)
+
+                    gene_file.write('\t'.join([str(gene_count), protein_id, str(genome_count), str(replicon_count), strand, gene_name, locus_tag, exon_count, gene_length, gene_product]))
+                    #insert_genes_table(myConnection, protein_id, genome_count, replicon_count, strand, gene_name, locus_tag, exon_count, gene_length, gene_product)
+                    #gene_count = query_mx_gene_id(myConnection)
                     
 
                     #print synonym
                     #synonym_file.write(str(gene_count)+'\t')
                     if 'gene_synonym' in f.qualifiers:
-                        synonym_file.write(str(gene_count)+'\t')
-                        synonym_file.write(','.join(f.qualifiers['gene_synonym']).replace('; ',',')+'\n')
+                        #synonym_file.write(str(gene_count)+'\t')
+                        synonyms = '; '.join(f.qualifiers['gene_synonym'])
+                        synonyms = synonyms.split('; ')
+                        #print(synonyms)
+                        #print(f.qualifiers['gene_synonym'][0]).split()
+                        for s in synonyms:
+                            #print(s)
+                            synonym_file.write(str(gene_count)+'\t')
+                            synonym_file.write(s+'\n')
+
+                        #synonym_file.write(','.join(f.qualifiers['gene_synonym']).replace('; ',',')+'\n')
                         #GSs = f.qualifiers['gene_synonym']
                         #print(','.join(GSs),end='\t')
                     #else:
@@ -208,11 +209,12 @@ def read_genbank(input_files, myConnection):
                     
 
                     for e in f.location.parts:
-                        insert_exons_table(myConnection, gene_count, str(int(e.start)),str(int(e.end)),str(len(e)))
-                        #exon_file.write(str(cds_count+1)+'\t')
-                        #exon_file.write(str(int(e.start)) + '\t')
-                        #exon_file.write(str(int(e.end)) + '\t')
-                        #exon_file.write(str(len(e))+'\n')
+                        #insert_exons_table(myConnection, gene_count, str(int(e.start)),str(int(e.end)),str(len(e)))
+                        
+                        exon_file.write(str(gene_count)+'\t')
+                        exon_file.write(str(int(e.start)) + '\t')
+                        exon_file.write(str(int(e.end)) + '\t')
+                        exon_file.write(str(len(e))+'\n')
 
                     '''
                     print(f.location)
@@ -262,7 +264,19 @@ def read_genbank(input_files, myConnection):
                 elif f.type == 'source':
                     taxid = ','.join(f.qualifiers['db_xref']).replace('taxon:','')
 
-            update_replicon_gene_count(myConnection, replicon_count, cds_count)
+            genome_id = str(genome_count)
+            name = seq_record.description
+            rep_size = str(len(seq_record.seq))
+            if 'chromosome' in seq_record.description:
+                replicon_type = 'chromosome'
+            elif 'plasmid' in seq_record.description:
+                replicon_type = 'plasmid'
+            else:
+                replicon_type = 'unknown'
+            replicon_structure = seq_record.annotations['topology']
+            accession = seq_record.name
+            replicon_file.write('\t'.join([str(genome_id), name, rep_size, replicon_type, replicon_structure, str(cds_count),accession])+'\n')
+            #update_replicon_gene_count(myConnection, replicon_count, cds_count)
             #replicon_file.write(str(cds_count)+'\t')
             #replicon_file.write(seq_record.name+'\n')
 
@@ -338,6 +352,8 @@ def insert_replicons_table(conn, genome_id, name, rep_size, replicon_type, struc
     #print("finish insert replicon", name)
     cur.close()
 
+
+
 def update_replicon_gene_count(conn, replicon_id, count):
     cur = conn.cursor()
     sql_statement = ("UPDATE replicons "
@@ -386,6 +402,28 @@ def load_replicons_table(conn):
     cur.execute(sql_statement)
     cur.close()
 
+def load_genes_table(conn):
+    cur = conn.cursor()
+    sql_statement = ("LOAD DATA LOCAL INFILE 'genes.tab' INTO TABLE genes"
+        "(gene_id, accession, genome_id, replicon_id, strand, name, locus_tag, num_exons, size, product);")
+    cur.execute(sql_statement)
+    cur.close()
+
+
+def load_exons_table(conn):
+    cur = conn.cursor()
+    sql_statement = ("LOAD DATA LOCAL INFILE 'exons.tab' INTO TABLE exons"
+        "(gene_id, left_position, right_position, size);")
+    cur.execute(sql_statement)
+    cur.close()
+
+def load_synonyms_table(conn):
+    cur = conn.cursor()
+    sql_statement = ("LOAD DATA LOCAL INFILE 'gene_synonyms.tab' INTO TABLE gene_synonyms"
+        "(gene_id, synonym);")
+    cur.execute(sql_statement)
+    cur.close()
+
 def import_genomes():
     os.system('mysqlimport -u root -p --local bimm185 --columns=genome_short_name,genome_long_name,domain,size,release_date,tax_id genomes.tab')
 
@@ -393,7 +431,7 @@ def import_replicons():
     os.system('mysqlimport -u root -p --local bimm185 --columns=genome_id,name,rep_size,type,structure,num_genes,accession replicons.tab')
 
 def import_genes():
-    os.system('mysqlimport -u root -p --local bimm185 --columns=accession,genome_id,replicon_id,strand,name,locus_tag,num_exons,size,product genes.tab')
+    os.system('mysqlimport -u root -p --local bimm185 --columns=gene_id,accession,genome_id,replicon_id,strand,name,locus_tag,num_exons,size,product genes.tab')
 
 def import_exons():
     os.system('mysqlimport -u root -p --local bimm185 --columns=gene_id,left_position,right_position,size exons.tab')
@@ -421,6 +459,14 @@ def main():
     input_files = sys.argv[1:]
     #print(input_files)
     read_genbank(input_files,myConnection)
+    load_replicons_table(myConnection)
+    print('finish loading replicons')
+    load_genes_table(myConnection)
+    print('finish loading genes')
+    load_exons_table(myConnection)
+    print('finish loading exons')
+    load_synonyms_table(myConnection)
+    print('finish loading synonyms')
     #load_genomes_table(myConnection)
     #load_replicons_table(myConnection)
     #os.system('mysql -u root -p bimm185 < create_tables.sql')

@@ -36,7 +36,7 @@ CREATE TABLE replicons(
 
 
 CREATE TABLE genes(
-	gene_id 	INT 	(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	gene_id 	INT 	(10) UNSIGNED NOT NULL,
 	accession VARCHAR (100) NOT NULL,
 	genome_id 	INT 	(10) UNSIGNED NOT NULL,
 	replicon_id INT 	(10) UNSIGNED NOT NULL,
@@ -68,11 +68,12 @@ CREATE TABLE exons(
 CREATE TABLE gene_synonyms(
 	gene_id INT 	(10) UNSIGNED NOT NULL,
 	#--synonym_id INT (10) UNSIGNED NOT NULL,
-	synonym_id INT (10) UNSIGNED NOT NULL,
+	synonym VARCHAR (100) NOT NULL,
+	#synonym_id INT (10) UNSIGNED NOT NULL,
+
 	#--PRIMARY KEY (gene_id, synonym_id),
 	#index(gene_id, synonym_id),
-	index(gene_id),
-	index(synonym_id)
+	PRIMARY KEY (gene_id, synonym)
 	#FOREIGN KEY (gene_id) REFERENCES genes(gene_id),
 	#FOREIGN KEY (synonym_id) REFERENCES synonyms(synonmy_id)
 )ENGINE=InnoDB;
