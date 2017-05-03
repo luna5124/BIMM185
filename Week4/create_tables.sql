@@ -1,10 +1,12 @@
+DROP TABLE IF EXISTS functions;
+DROP TABLE IF EXISTS ex_references;
+DROP TABLE IF EXISTS gene_synonyms;
+DROP TABLE IF EXISTS synonyms;
+DROP TABLE IF EXISTS exons;
+DROP TABLE IF EXISTS genes;
 DROP TABLE IF EXISTS replicons;
 DROP TABLE IF EXISTS genomes;
-DROP TABLE IF EXISTS genes;
-DROP TABLE IF EXISTS exons;
-DROP TABLE IF EXISTS gene_synonyms;
-DROP TABLE IF EXISTS ex_references;
-DROP TABLE IF EXISTS functions;
+
 
 CREATE TABLE genomes (
   	genome_id  	INT     (10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -29,7 +31,7 @@ CREATE TABLE replicons(
 	type ENUM('chromosome','plasmid','unknown') NOT NULL,
 	structure ENUM('linear', 'circular') NOT NULL,
 	PRIMARY KEY (replicon_id),
-	KEY (genome_id)
+	FOREIGN KEY (genome_id) REFERENCES genomes(genome_id)
 )ENGINE=InnoDB;
 
 
@@ -45,33 +47,40 @@ CREATE TABLE genes(
 	size 		INT 	(10) UNSIGNED NOT NULL,
 	product     TEXT (1000) NOT NULL,
 	PRIMARY KEY (gene_id),
-	KEY (genome_id),
-	KEY (replicon_id)
+	FOREIGN KEY (genome_id) REFERENCES genomes(genome_id),
+	FOREIGN KEY (replicon_id) REFERENCES replicons(replicon_id)
 )ENGINE=InnoDB;
 
 
 CREATE TABLE exons(
-	exon_id INT 	(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	#--exon_id INT 	(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	gene_id INT 	(10) UNSIGNED NOT NULL,
 	left_position INT 	(10) UNSIGNED NOT NULL,
 	right_position INT 	(10) UNSIGNED NOT NULL,
 	size INT 	(10) UNSIGNED NOT NULL,
-	PRIMARY KEY (exon_id),
-	KEY (gene_id)
+	#--PRIMARY KEY (exon_id),
+	#index(gene_id),
+	#index(left_position),
+	#index(right_position),
+	FOREIGN KEY (gene_id) REFERENCES genes(gene_id)
 )ENGINE=InnoDB;
 
 CREATE TABLE gene_synonyms(
 	gene_id INT 	(10) UNSIGNED NOT NULL,
+	#--synonym_id INT (10) UNSIGNED NOT NULL,
 	synonym_id INT (10) UNSIGNED NOT NULL,
-	PRIMARY KEY (gene_id, synonym_id),
-	KEY (gene_id),
-	KEY (synonmy_id)
+	#--PRIMARY KEY (gene_id, synonym_id),
+	#index(gene_id, synonym_id),
+	index(gene_id),
+	index(synonym_id)
+	#FOREIGN KEY (gene_id) REFERENCES genes(gene_id),
+	#FOREIGN KEY (synonym_id) REFERENCES synonyms(synonmy_id)
 )ENGINE=InnoDB;
 
-CREATE TABLe synonyms(
+CREATE TABLE synonyms(
 	synonym_id INT (10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	synonym VARCHAR (100) NOT NULL,
-	PRIMARY KEY (synonym_id)
+	PRIMARY KEY (synonym_id),
 	KEY (synonym_id)
 )ENGINE=InnoDB;
 
@@ -80,8 +89,9 @@ CREATE TABLE ex_references(
 	gene_id INT 	(10) UNSIGNED NOT NULL,
 	external_db	VARCHAR (100) NOT NULL,
 	external_id VARCHAR 	(100) NOT NULL,
-	PRIMARY KEY (gene_id, external_db, external_id),
-	KEY (gene_id)
+	index(gene_id, external_id),
+	#--PRIMARY KEY (gene_id, external_db, external_id),
+	FOREIGN KEY (gene_id) REFERENCES genes(gene_id)
 )ENGINE=InnoDB;
 
 
