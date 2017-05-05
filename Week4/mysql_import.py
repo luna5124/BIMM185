@@ -93,7 +93,7 @@ def read_genbank(input_files, myConnection):
                 genome_count = query_mx_genome_id(myConnection)
                 inserted_genome = True
 
-
+            cds_count = 0
 
             #replicon_count += 1
             #seq_record = parses[j]
@@ -137,7 +137,7 @@ def read_genbank(input_files, myConnection):
 
 
                     if 'protein_id' in f.qualifiers:
-                        protein_id = ','.join(f.qualifiers['protein_id'])
+                        protein_id = ','.join(f.qualifiers['protein_id']).split('.')[0]
 
                         #gene_file.write(','.join(f.qualifiers['protein_id'])+'\t')
                     elif 'pseudo' in f.qualifiers:
@@ -234,6 +234,10 @@ def read_genbank(input_files, myConnection):
                     
                     if 'function' in f.qualifiers:
                         function_file.write(str(gene_count) + '\t')
+                        #for function in f.qualifiers['function']:
+                        #    function_file.write(str(gene_count) + '\t')
+                        #    function_file.write(function+'\n')
+
                         function_file.write(','.join(f.qualifiers['function']) + '\n')
                     #print EC_number
                     '''
@@ -259,7 +263,6 @@ def read_genbank(input_files, myConnection):
                     #change new line
 
                     gene_file.write('\n')
-                    cds_count += 1
                 #obtain taxid from source line
                 elif f.type == 'source':
                     taxid = ','.join(f.qualifiers['db_xref']).replace('taxon:','')
@@ -424,6 +427,13 @@ def load_synonyms_table(conn):
     cur.execute(sql_statement)
     cur.close()
 
+def load_functions_table(conn):
+    cur = conn.cursor()
+    sql_statement = ("LOAD DATA LOCAL INFILE 'functions.tab' INTO TABLE functions"
+        "(gene_id, function);")
+    cur.execute(sql_statement)
+    cur.close()
+
 def import_genomes():
     os.system('mysqlimport -u root -p --local bimm185 --columns=genome_short_name,genome_long_name,domain,size,release_date,tax_id genomes.tab')
 
@@ -467,6 +477,8 @@ def main():
     print('finish loading exons')
     load_synonyms_table(myConnection)
     print('finish loading synonyms')
+    load_functions_table(myConnection)
+    print('finish loading functions')
     #load_genomes_table(myConnection)
     #load_replicons_table(myConnection)
     #os.system('mysql -u root -p bimm185 < create_tables.sql')

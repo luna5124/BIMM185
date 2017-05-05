@@ -1,3 +1,15 @@
 zcat < GCF_000005845.2_ASM584v2_protein.faa.gz | makeblastdb -input_type 'fasta' -dbtype prot -parse_seqids -hash_index -out /Users/LunaLu/Dropbox/Documents/SP17/BIMM185/blastdb/E_coli -title "ecoli  04/27/2017"  -in -
 
-zcat < GCF_000005845.2_ASM584v2_protein.faa.gz | blastp -query - -out blast.out -db $BLASTDB/ecoli -evalue 0.01 -outfmt '6 qseqid sseqid evalue pident'
+
+zcat < A.tumefaciens/*protein.faa.gz | makeblastdb -input_type 'fasta' -dbtype prot -parse_seqids -hash_index -out /Users/LunaLu/Dropbox/Documents/SP17/BIMM185/blastdb/A.tumefaciens -title "A.tumefaciens  05/04/2017"  -in -
+
+
+
+zcat < ../Week4/genome/A.tumefaciens/*.faa.gz | blastp -query - -out A.tumefaciens_vs_E_coli_k12.out -db $BLASTDB/E_coli -evalue 0.01 -outfmt '6 qseqid sseqid qlen slen bitscore evalue pident nident length qcovs qstart qend sstart send'
+
+zcat < ../Week4/genome/E_coli_k12/*.faa.gz | blastp -query - -out E_coli_k12_vs_A.tumefaciens.out -db $BLASTDB/A.tumefaciens -evalue 0.01 -outfmt '6 qseqid sseqid qlen slen bitscore evalue pident nident length qcovs qstart qend sstart send'
+
+
+
+python mysql_import.py genome/E_coli_k12/*_genomic.gbff.gz genome/A.tumefaciens/*_genomic.gbff.gz
+
