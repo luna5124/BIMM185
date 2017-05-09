@@ -1,0 +1,30 @@
+# Assembly name:  ASM57651v1
+# Organism name:  Agrobacterium tumefaciens LBA4213 (Ach5) (a-proteobacteria)
+# Infraspecific name:  strain=LBA4213 (Ach5)
+# Taxid:          1435057
+# BioSample:      SAMN03081534
+# BioProject:     PRJNA224116
+# Submitter:      Institute of Biology, Leiden University
+# Date:           2014-2-24
+# Assembly type:  n/a
+# Release type:   major
+# Assembly level: Chromosome
+# Genome representation: full
+# GenBank assembly accession: GCA_000576515.1
+# RefSeq assembly accession: GCF_000576515.1
+# RefSeq assembly and GenBank assemblies identical: yes
+#
+## Assembly-Units:
+## GenBank Unit Accession	RefSeq Unit Accession	Assembly-Unit name
+## GCA_000576525.1	GCF_000576525.1	Primary Assembly
+#
+# Ordered by chromosome/plasmid; the chromosomes/plasmids are followed by
+# unlocalized scaffolds.
+# Unplaced scaffolds are listed at the end.
+# RefSeq is equal or derived from GenBank object.
+#
+# Sequence-Name	Sequence-Role	Assigned-Molecule	Assigned-Molecule-Location/Type	GenBank-Accn	Relationship	RefSeq-Accn	Assembly-Unit	Sequence-Length	UCSC-style-name
+circular	assembled-molecule	circular	Chromosome	CP007225.1	=	NZ_CP007225.1	Primary Assembly	2773134	na
+linear	assembled-molecule	linear	Chromosome	CP007226.1	=	NZ_CP007226.1	Primary Assembly	2095074	na
+pAt	assembled-molecule	pAt	Plasmid	CP007227.1	=	NZ_CP007227.1	Primary Assembly	556485	na
+pTi	assembled-molecule	pTi	Plasmid	CP007228.1	=	NZ_CP007228.1	Primary Assembly	205997	na
