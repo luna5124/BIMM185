@@ -89,13 +89,10 @@ def main():
 		reverse.sort()
 		#print(forward)
 
-		for i in range(len(forward) - 1):
-			h0_file.write(str(forward[i+1][0][0] - forward[i][-1][-1]) + '\n')
-		for i in range(len(reverse) - 1):
-			#print(reverse[i],reverse[i][-1][-1], reverse[i+1], reverse[i+1][0][0])
-			h0_file.write(str(reverse[i+1][0][0] - reverse[i][-1][-1]) + '\n')
-
 		print(query_directons(myConnection))
+		
+
+
 	#print(count)
 
 
@@ -151,7 +148,7 @@ def query_exon(conn, gene):
 
 def query_directons(conn):
 	cur = conn.cursor()
-	sql_statement = ("select genes.gene_id, strand, left_position, right_position from genes inner join(select gene_id, min(left_position) as left_position, max(right_position) as right_position from exons group by gene_id) position on position.gene_id = genes.gene_id order by left_position;")
+	sql_statement = ("select genes.gene_id, genes.name, strand, left_position, right_position from genes inner join(select gene_id, min(left_position) as left_position, max(right_position) as right_position from exons group by gene_id) position on position.gene_id = genes.gene_id order by left_position;")
 	cur.execute(sql_statement)
 	result = cur.fetchall()
 	print(result)
