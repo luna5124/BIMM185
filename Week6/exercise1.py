@@ -106,7 +106,7 @@ def main():
 				if len(genes) == 0:
 					continue
 				#print(genes, strand)
-				
+
 				if strand == 'forward':
 					#first gene is the leftmost
 					if genes[0] in sorted_genes:
@@ -169,12 +169,13 @@ def main():
 	#plt.hist(density)
 	#plt.show()
 	kde = gaussian_kde(h0)
-	dist_space = linspace( min(h0), max(h0), 30)
+	dist_space = linspace(-20, 600, 1000)
 	plt.plot(dist_space,kde(dist_space))
 
 
 	kde2 = gaussian_kde(h1)
-	dist_space2 = linspace( min(h1), max(h1), 30)
+
+	dist_space2 = linspace(-20, 600, 1000)
 	plt.plot(dist_space2,kde2(dist_space2))
 
 	plt.show()
