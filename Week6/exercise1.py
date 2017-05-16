@@ -2,7 +2,9 @@ import sys
 import pymysql
 from scipy import stats
 import numpy
+from numpy import linspace
 import matplotlib.pyplot as plt
+from scipy.stats.kde import gaussian_kde
 
 hostname = 'localhost'
 username = 'root'
@@ -103,7 +105,8 @@ def main():
 
 				if len(genes) == 0:
 					continue
-				print(genes)
+				#print(genes, strand)
+				
 				if strand == 'forward':
 					#first gene is the leftmost
 					if genes[0] in sorted_genes:
@@ -115,7 +118,7 @@ def main():
 							if prev[2] == '+':
 								distance = directons[gene_index][3] - prev[4]
 								h0.append(distance)
-								print(directons[gene_index],prev,distance)
+								#print(directons[gene_index],prev,distance)
 
 					if genes[-1] in sorted_genes:
 						gene_index = sorted_genes.index(genes[-1])
@@ -125,7 +128,7 @@ def main():
 							if next_gene[2] == "+":
 								distance = next_gene[3] - directons[gene_index][4]
 								h0.append(distance)
-								print(directons[gene_index],next_gene,distance)
+								#print(directons[gene_index],next_gene,distance)
 
 
 				else:
@@ -139,7 +142,7 @@ def main():
 							if next_gene[2] == "-":
 								distance = next_gene[3] - directons[gene_index][4]
 								h0.append(distance)
-								print(directons[gene_index],next_gene,distance)
+								#print(directons[gene_index],next_gene,distance)
 						
 
 					if genes[-1] in sorted_genes:
@@ -150,7 +153,7 @@ def main():
 							if prev[2] == '-':
 								distance = directons[gene_index][3] - prev[4]
 								h0.append(distance)
-								print(directons[gene_index],prev,distance)
+								#print(directons[gene_index],prev,distance)
 		#print(h0)
 		for h in h0:
 			h0_file.write(str(h) + '\n')
@@ -165,6 +168,16 @@ def main():
 	#density = stats.kde.gaussian_kde(h0)
 	#plt.hist(density)
 	#plt.show()
+	kde = gaussian_kde(h0)
+	dist_space = linspace( min(h0), max(h0), 30)
+	plt.plot(dist_space,kde(dist_space))
+
+
+	kde2 = gaussian_kde(h1)
+	dist_space2 = linspace( min(h1), max(h1), 30)
+	plt.plot(dist_space2,kde2(dist_space2))
+
+	plt.show()
 	h0_file.close()
 	h1_file.close()
 	#print(count)
