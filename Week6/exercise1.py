@@ -158,35 +158,70 @@ def main():
 		for h in h0:
 			h0_file.write(str(h) + '\n')
 
-		#forward.sort()
-		#reverse.sort()
-		#print(forward)
-		#PDF_calculate(h1)
-
-
-		
-	#density = stats.kde.gaussian_kde(h0)
-	#plt.hist(density)
-	#plt.show()
-	kde = gaussian_kde(h0)
-	dist_space = linspace(-20, 600, 1000)
-	plt.plot(dist_space,kde(dist_space))
-
-
-	kde2 = gaussian_kde(h1)
-
-	dist_space2 = linspace(-20, 600, 1000)
-	plt.plot(dist_space2,kde2(dist_space2))
-
-	plt.show()
 	h0_file.close()
 	h1_file.close()
-	#print(count)
+
+	posteria_calculate(h0, h1, sorted_genes, directons)
+
+def posteria_calculate(h0, h1, sorted_genes, directons):
+	kde0, kde1 = pdf_calculate(h0, h1)
+	posts = []
+	distances = []
+	directon = []
+	direction = ""
+	for d in directons:
+		if direction == "":
+			directon.append((d[3],d[4]))
+			direction = d[2]
+			continue
+		elif direction == d[2]:
+			directon.append((d[3],d[4]))
+		else:
+			for i in range(len(directon)):
+				for j in range(i+1, len(directon)):
+					distance = directon[j][0] - directon[i][1]
+					#print(distance,kde1(distance),kde0(distance))
+					if kde1(distance) * 0.6 == 0:
+						posts.append(0)
+					else:
+						pos = kde1(distance) * 0.6 / (kde1(distance) * 0.6 + kde0(distance) * 0.4)
+						posts.append(pos[0])
+					
+
+					distances.append(distance)
+
+			directon = [(d[3],d[4])]
+			direction = d[2]
+	#print(distances, posts)
+	plt.plot(distances, posts,'b.')
+	plt.xlim([-600,1000])
+	plt.show()
 
 
 
-def PDF_calculate(data):
-	y = pdf(data,10)
+
+
+
+
+
+def pdf_calculate(h0, h1):
+	kde0 = gaussian_kde(h0)
+	dist_space0 = linspace(-20, 600, 1000)
+	#plt.plot(dist_space0,kde0(dist_space0))
+
+
+	kde1 = gaussian_kde(h1)
+
+	dist_space1 = linspace(-20, 600, 1000)
+	#plt.plot(dist_space1,kde1(dist_space2))
+
+	#print(kde0(0))
+	#print(kde0(1))
+	#print(kde1(0))
+	#print(kde1(1))
+
+	#plt.show()
+	return kde0, kde1
 
 def query_gene_synonym(conn, name):
 	cur = conn.cursor()
