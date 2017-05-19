@@ -255,6 +255,10 @@ def main():
 
 def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 	kde0, kde1 = pdf_calculate(h0, h1)
+	kde1.covariance_factor = lambda : 0.25
+	kde1._compute_covariance()
+	kde0.covariance_factor = lambda : 0.25
+	kde0._compute_covariance()
 	posts = []
 	distances = []
 	directon = []
@@ -268,6 +272,11 @@ def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 		elif direction == d[2]:
 			directon.append((d[0],d[3],d[4]))
 		else:
+			print(directon)
+			if len(directon) <= 1:
+				directon = [(d[0],d[3],d[4])]
+				direction = d[2]
+				continue
 			for i in range(len(directon)-1):
 				distance = directon[i+1][1] - directon[i][2]
 				pair = (directon[i][0],directon[i+1][0])
@@ -306,11 +315,14 @@ def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 			direction = d[2]
 	predict_file.close()
 	#print(distances, posts)
-	'''
-	plt.plot(distances, posts,'b.')
-	plt.xlim([-600,1000])
+	prob_to_plot = []
+	dist_to_plot = [i for i in range(-200,600)]
+	for i in range(-200, 600):
+		prob_to_plot.append(kde1(i) * 0.6 / (kde1(i) * 0.6 + kde0(i) * 0.4))
+	plt.plot(dist_to_plot, prob_to_plot,'y.')
+	plt.xlim([-200,600])
 	plt.show()
-	'''
+	
 
 
 
@@ -320,15 +332,34 @@ def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 
 
 def pdf_calculate(h0, h1):
-	kde0 = gaussian_kde(h0)
-	dist_space0 = linspace(-20, 600, 1000)
-	#plt.plot(dist_space0,kde0(dist_space0))
-
+	dist_space0 = linspace(-200, 2000, 1000)
 
 	kde1 = gaussian_kde(h1)
+	kde1.covariance_factor = lambda : 0.25
+	kde1._compute_covariance()
 
-	dist_space1 = linspace(-20, 600, 1000)
-	#plt.plot(dist_space1,kde1(dist_space2))
+
+	density1 = kde1(dist_space0)
+	max_density1 = max(density1)
+	for i in range(len(density1)):
+		density1[i] = density1[i]/max_density1
+	plt.plot(dist_space0, kde1(dist_space0)/max(kde1(dist_space0)))
+
+	kde0 = gaussian_kde(h0)
+	kde0.covariance_factor = lambda : 0.25
+	kde0._compute_covariance()
+	
+	density0 = kde0(dist_space0)
+	#max_density0 = max(density0)
+	dist0 = [i for i in range(min(h0),min(h0))]
+	for i in range(len(density0)):
+		density0[i] = density0[i]/max_density1
+		#print(max_density0)
+	plt.plot(dist_space0, kde0(dist_space0)/max(kde1(dist_space0)))
+	
+	#print("max density0: ", max_density0)
+	#print(density0)
+
 
 	#print(kde0(0))
 	#print(kde0(1))
