@@ -1,5 +1,8 @@
 --all directons
-select genes.gene_id, strand, left_position, right_position from genes inner join(select gene_id, min(left_position) as left_position, max(right_position) as right_position from exons group by gene_id) position on position.gene_id = genes.gene_id order by left_position;
+select genes.gene_id, genes.name, strand, left_position, right_position from genes inner join
+	(select gene_id, min(left_position) as left_position, max(right_position) as right_position 
+			from exons group by gene_id) position 
+	on position.gene_id = genes.gene_id where genes.genome_id = 1 order by left_position;
 
 
 --find unique genes in A. tumefaciens

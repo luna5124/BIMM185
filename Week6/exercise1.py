@@ -318,7 +318,7 @@ def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 	prob_to_plot = []
 	dist_to_plot = [i for i in range(-200,600)]
 	for i in range(-200, 600):
-		prob_to_plot.append(kde1(i) * 0.6 / (kde1(i) * 0.6 + kde0(i) * 0.4))
+		prob_to_plot.append(kde1(i) * 0.5 / (kde1(i) * 0.5 + kde0(i) * 0.5))
 	plt.plot(dist_to_plot, prob_to_plot,'y.')
 	plt.xlim([-200,600])
 	plt.show()
@@ -334,7 +334,9 @@ def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 def pdf_calculate(h0, h1):
 	dist_space0 = linspace(-200, 2000, 1000)
 
-	kde1 = gaussian_kde(h1)
+	kde1 = gaussian_kde(h1, 0.5)
+	#kde1.set_bandwidth(bw_method='silverman')
+	kde1.set_bandwidth(bw_method=kde1.factor * 3.0)
 	kde1.covariance_factor = lambda : 0.25
 	kde1._compute_covariance()
 
@@ -345,7 +347,8 @@ def pdf_calculate(h0, h1):
 		density1[i] = density1[i]/max_density1
 	plt.plot(dist_space0, kde1(dist_space0)/max(kde1(dist_space0)))
 
-	kde0 = gaussian_kde(h0)
+	kde0 = gaussian_kde(h0,0.5)
+	kde0.set_bandwidth(bw_method=kde0.factor * 3.0)
 	kde0.covariance_factor = lambda : 0.25
 	kde0._compute_covariance()
 	
