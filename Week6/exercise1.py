@@ -1,5 +1,6 @@
 import sys
 import pymysql
+import scipy
 from scipy import stats
 import numpy
 from numpy import linspace
@@ -20,6 +21,9 @@ def main():
 	h0_file = open('h0.out','w')
 	h1, h0 = [], []
 	h1_file = open('h1.out','w')
+	operons = set()
+	borders = set()
+	border_dic = {}
 	with open("GeneProductSet.txt",'r') as file:
 		for line in file:
 			line_count += 1
@@ -68,12 +72,13 @@ def main():
 					result = query_gene_name(myConnection, g)
 					#print(g)
 					if result is None:
-						#print("Try finding the gene through synonym table: ", g)
-						result = query_gene_synonym(myConnection, g)
-					if result is None:
 						if g in gene_products:
 							locus_tag = gene_products[g]
 							result = query_gene_locau_tag(myConnection, locus_tag)
+
+					if result is None:
+						#print("Try finding the gene through synonym table: ", g)
+						result = query_gene_synonym(myConnection, g)
 							#if result is None:
 								#print(g, 'locus tag: ', locus_tag, 'locus tag is not found in DB')
 						#else:
@@ -85,6 +90,10 @@ def main():
 							gene_rights.append(e[2])
 						pos.append((min(gene_lefts), max(gene_rights)))
 						genes.append(result)
+
+
+
+
 						#print(g,min(gene_lefts),max(gene_rights),strand)
 
 					
@@ -98,50 +107,109 @@ def main():
 				else:
 					reverse.append(pos)
 				'''
+				print(genes)
 
 				for i in range(len(pos) - 1):
+					#print(genes[i],genes[i+1])
 					h1.append(pos[i+1][0] - pos[i][1])
 					h1_file.write(str(pos[i+1][0] - pos[i][1]) + '\n')
 
 				if len(genes) == 0:
 					continue
-				#print(genes, strand)
+				
+				#print("start calculate h0")
 
 				if strand == 'forward':
 					#first gene is the leftmost
+					for i in range(len(genes)-1):
+						operons.add((genes[i],genes[i+1]))
+
 					if genes[0] in sorted_genes:
 						gene_index = sorted_genes.index(genes[0])
+						
 						if gene_index != 0:
 
 							prev = directons[gene_index - 1]
+
 							#print(prev)
-							if prev[2] == '+':
-								distance = directons[gene_index][3] - prev[4]
-								h0.append(distance)
+							if prev[0] not in border_dic:
+								if prev[2] == '+':
+									distance = directons[gene_index][3] - prev[4]
+									borders.add((prev[0],genes[0]))
+									h0.append(distance)
+									border_dic[prev[0]] = genes[0]
+									border_dic[genes[0]] = prev[0]
+									print(prev[0],genes[0])
+								else:
+									print(prev[0],genes[0],'not on the same strand')
+							elif border_dic[prev[0]] != genes[0]:
+								if prev[2] == '+':
+									distance = directons[gene_index][3] - prev[4]
+									borders.add((prev[0],genes[0]))
+									h0.append(distance)
+									border_dic[prev[0]] = genes[0]
+									border_dic[genes[0]] = prev[0]
+									print(prev[0],genes[0])
+								else:
+									print(prev[0],genes[0],'not on the same strand')
+
 								#print(directons[gene_index],prev,distance)
 
 					if genes[-1] in sorted_genes:
 						gene_index = sorted_genes.index(genes[-1])
 						if gene_index != len(sorted_genes) - 1:
 							next_gene = directons[gene_index + 1]
-
-							if next_gene[2] == "+":
-								distance = next_gene[3] - directons[gene_index][4]
-								h0.append(distance)
+							borders.add((genes[-1],next_gene[0]))
+							if next_gene[0] not in border_dic:
+								if next_gene[2] == "+":
+									distance = next_gene[3] - directons[gene_index][4]
+									h0.append(distance)
+									border_dic[next_gene[0]] = genes[-1]
+									border_dic[genes[-1]] = next_gene[0]
+									print(next_gene[0],genes[-1])
+								else:
+									print(next_gene[0],genes[-1], 'not on the same strand')
+							elif border_dic[next_gene[0]] != genes[-1]:
+								if next_gene[2] == "+":
+									distance = next_gene[3] - directons[gene_index][4]
+									h0.append(distance)
+									border_dic[next_gene[0]] = genes[-1]
+									border_dic[genes[-1]] = next_gene[0]
+									print(next_gene[0],genes[-1])
+								else:
+									print(next_gene[0],genes[-1],'not on the same strand')
 								#print(directons[gene_index],next_gene,distance)
 
 
 				else:
+					for i in range(len(genes)-1,-1,-1):
+						operons.add((genes[i],genes[i-1]))
 
 					if genes[0] in sorted_genes:
 						gene_index = sorted_genes.index(genes[0])
 						if gene_index != len(sorted_genes) - 1:
 
 							next_gene = directons[gene_index + 1]
+							borders.add((genes[0],next_gene[0]))
+							if next_gene[0] not in border_dic:
+								if next_gene[2] == "-":
+									distance = next_gene[3] - directons[gene_index][4]
+									h0.append(distance)
+									border_dic[next_gene[0]] = genes[-1]
+									border_dic[genes[-1]] = next_gene[0]
+									print(next_gene[0],genes[-1])
+								else:
+									print(next_gene[0],genes[-1],'not on the same strand')
+							elif border_dic[next_gene[0]] != genes[-1]:
+								if next_gene[2] == "-":
+									distance = next_gene[3] - directons[gene_index][4]
+									h0.append(distance)
+									border_dic[next_gene[0]] = genes[-1]
+									border_dic[genes[-1]] = next_gene[0]
+									print(next_gene[0],genes[-1])
+								else:
+									print(next_gene[0],genes[-1],'not on the same strand')
 
-							if next_gene[2] == "-":
-								distance = next_gene[3] - directons[gene_index][4]
-								h0.append(distance)
 								#print(directons[gene_index],next_gene,distance)
 						
 
@@ -149,35 +217,78 @@ def main():
 						gene_index = sorted_genes.index(genes[-1])
 						if gene_index != 0:
 							prev = directons[gene_index - 1]
+							borders.add((prev[0],genes[-1]))
 							#print(prev)
-							if prev[2] == '-':
-								distance = directons[gene_index][3] - prev[4]
-								h0.append(distance)
-								#print(directons[gene_index],prev,distance)
+							if prev[0] not in border_dic:
+								if prev[2] == '-':
+									distance = directons[gene_index][3] - prev[4]
+									h0.append(distance)
+									border_dic[prev[0]] = genes[0]
+									border_dic[genes[0]] = prev[0]
+									print(prev[0],genes[0])
+								else:
+									print(prev[0],genes[0],'not on the same strand')
+							elif border_dic[prev[0]] != genes[-1]:
+								if prev[2] == '-':
+									distance = directons[gene_index][3] - prev[4]
+									h0.append(distance)
+									border_dic[prev[0]] = genes[0]
+									border_dic[genes[0]] = prev[0]
+									print(prev[0],genes[0])
+								else:
+									print(prev[0],genes[0],'not on the same strand')
+
+
+									#print(directons[gene_index],prev,distance)
 		#print(h0)
+
 		for h in h0:
 			h0_file.write(str(h) + '\n')
-
+	print("operon count: ", count)
 	h0_file.close()
 	h1_file.close()
+	#print("border_dic: ", border_dic)
+	#print(operons)
+	posteria_calculate(h0, h1, sorted_genes, directons, operons,borders)
+	create_tu(myConnection)
+	import_tu(myConnection)
 
-	posteria_calculate(h0, h1, sorted_genes, directons)
-
-def posteria_calculate(h0, h1, sorted_genes, directons):
+def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 	kde0, kde1 = pdf_calculate(h0, h1)
 	posts = []
 	distances = []
 	directon = []
 	direction = ""
+	predict_file=open('predict.tab','w')
 	for d in directons:
 		if direction == "":
-			directon.append((d[3],d[4]))
+			directon.append((d[0],d[3],d[4]))
 			direction = d[2]
 			continue
 		elif direction == d[2]:
-			directon.append((d[3],d[4]))
+			directon.append((d[0],d[3],d[4]))
 		else:
-			for i in range(len(directon)):
+			for i in range(len(directon)-1):
+				distance = directon[i+1][1] - directon[i][2]
+				pair = (directon[i][0],directon[i+1][0])
+				predict_file.write(str(pair[0])+'\t'+str(pair[1])+'\t' + str(distance) + '\t')
+				if pair in operons:
+					#print(directon[i][0],directon[i+1][0], 'this pair in operon')
+					predict_file.write('TP'+'\t')
+				elif pair in borders:
+					#print(directon[i][0],directon[i+1][0], 'this pair not in operon')
+					predict_file.write('TN'+'\t')
+				else:
+					predict_file.write('UNDETERMINED'+'\t')
+				if kde1(distance) * 0.6 == 0:
+					posts.append(0)
+					predict_file.write('0'+'\n')
+				else:
+					pos = kde1(distance) * 0.6 / (kde1(distance) * 0.6 + kde0(distance) * 0.4)
+					posts.append(pos[0])
+					predict_file.write(str(pos[0])+'\n')
+				
+				'''
 				for j in range(i+1, len(directon)):
 					distance = directon[j][0] - directon[i][1]
 					#print(distance,kde1(distance),kde0(distance))
@@ -186,16 +297,20 @@ def posteria_calculate(h0, h1, sorted_genes, directons):
 					else:
 						pos = kde1(distance) * 0.6 / (kde1(distance) * 0.6 + kde0(distance) * 0.4)
 						posts.append(pos[0])
+				'''
 					
 
-					distances.append(distance)
+				distances.append(distance)
 
-			directon = [(d[3],d[4])]
+			directon = [(d[0],d[3],d[4])]
 			direction = d[2]
+	predict_file.close()
 	#print(distances, posts)
+	'''
 	plt.plot(distances, posts,'b.')
 	plt.xlim([-600,1000])
 	plt.show()
+	'''
 
 
 
@@ -236,6 +351,26 @@ def query_gene_synonym(conn, name):
 	else:
 		return result[0]
 
+
+def create_tu(conn):
+	cur = conn.cursor()
+	sql_statement = ("DROP TABLE IF EXISTS tus;\n"
+	"CREATE TABLE tus(\n"
+  	"gid_1 INT (10) UNSIGNED NOT NULL,\n"
+  	"gid_2 INT (10) UNSIGNED NOT NULL,\n"
+  	"distance INT  (10) NOT NULL,\n"
+  	"status ENUM('TP', 'TN', 'UNDETERMINED') NOT NULL,\n"
+  	"prob DOUBLE NOT NULL,\n"
+  	"KEY (gid_1),\n"
+  	"KEY (gid_2)\n"
+	")ENGINE=InnoDB;")
+	#print(sql_statement)
+	cur.execute(sql_statement)
+
+def import_tu(conn):
+	cur = conn.cursor()
+	sql_statement = ("LOAD DATA LOCAL INFILE 'predict.tab' INTO TABLE tus;")
+	cur.execute(sql_statement)
 
 def query_gene_name(conn, name):
 	cur = conn.cursor()
