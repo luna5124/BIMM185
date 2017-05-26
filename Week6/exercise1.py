@@ -252,12 +252,13 @@ def main():
 	posteria_calculate(h0, h1, sorted_genes, directons, operons,borders)
 	create_tu(myConnection)
 	import_tu(myConnection)
+	print("operon count:", count)
 
 def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 	kde0, kde1 = pdf_calculate(h0, h1)
-	kde1.covariance_factor = lambda : 0.25
+	kde1.covariance_factor = lambda : 0.5
 	kde1._compute_covariance()
-	kde0.covariance_factor = lambda : 0.25
+	kde0.covariance_factor = lambda : 0.5
 	kde0._compute_covariance()
 	posts = []
 	distances = []
@@ -323,12 +324,6 @@ def posteria_calculate(h0, h1, sorted_genes, directons, operons,borders):
 	plt.xlim([-200,600])
 	plt.show()
 	
-
-
-
-
-
-
 
 
 def pdf_calculate(h0, h1):
