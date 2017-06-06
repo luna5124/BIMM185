@@ -1,0 +1,335 @@
+# 
+#  		Transcription Factor Prediction Dataset  Version 2.0
+#
+#  184 TFs experimentally characterized and deposited in RegulonDB  were used as 
+# seeds in BLASTP searches against the complete proteome of E. coli. E-values ≤ 1e-6 
+# and a coverage of 70% were considered. In addition, TFs specifically associated to 
+# E. coli K12 and deposited in DBD database, HAMAP, Superfamily DB and PFAM 
+# databases were retrieved.
+#
+# Reference:
+#
+# The functional landscape bound to the transcription factors of Escherichia coli K-12.
+# Pérez-Rueda E, Tenorio-Salgado S, Huerta-Saquero A, Balderas-Martínez YI, Moreno-Hagelsieb G.
+# Comput Biol Chem. 2015 Jun 6;58:93-103. doi: 10.1016/j.compbiolchem.2015.06.002.
+# PMID: 26094112 
+# _____________________________________________________________________________
+# Column Description:
+#  (1) Gene Name
+#  (2) Bnumber (Locus)
+#  (3) UniProt ID
+#  (4) GI
+#  (5) Evolutionary Family
+#  (6) Status [Prediction, Experimental characterized]
+#  (7) Score
+#  (8) PFAM ID
+#  (9) PFAM Description MOTIF
+# (10) Motif Position
+# (11) PFAM Description MOTIF
+# (12) Motif Position
+# 
+Gene Name	Locus	ID Uniprot	GI	Family	Status	Score	PFAM	PFAM_DESCRIPTION	POSITION	PFAM	PFAM_DESCRIPTION	POSITION
+aaeR	b3243	AAER_ECOLI	16131133	LysR	Prediction	0.0086	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	4_63	PF03466.15	LysR substrate binding domain	87_293
+abgR	b1339	ABGR_ECOLI	16129300	LysR	Prediction	0.002	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	7_66	PF03466.15	LysR substrate binding domain	90_298
+allS	b0504	ALLS_ECOLI	16128488	LysR	Exp_characterized	0.0047	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	4_63	PF03466.15	LysR substrate binding domain	87_294
+cbl	b1987	CBL_ECOLI	16129929	LysR	Exp_characterized	2.07e_09	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_64	PF03466.15	LysR substrate binding domain	88_296
+cynR	b0338	CYNR_ECOLI	157783149	LysR	Exp_characterized	0.00042	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_62	PF03466.15	LysR substrate binding domain	86_291
+cysB	b1275	CYSB_ECOLI	16129236	LysR	Exp_characterized	1.26e_09	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_64	PF03466.15	LysR substrate binding domain	90_296
+yeaT	b1799	DMLR_ECOLI	90111335	LysR	Prediction	0.011	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	7_66	PF03466.15	LysR substrate binding domain	90_296
+dsdC	b2364	DSDC_ECOLI	16130296	LysR	Exp_characterized	0.011	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	17_76	PF03466.15	LysR substrate binding domain	98_308
+gcvA	b2808	GCVA_ECOLI	16130715	LysR	Exp_characterized	0.014	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	8_67	PF03466.15	LysR substrate binding domain	89_293
+hcaR	b2537	HCAR_ECOLI	16130462	LysR	Exp_characterized	0.00075	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_62	PF03466.15	LysR substrate binding domain	86_292
+hdfR	b4480	HDFR_ECOLI	49176402	LysR	Exp_characterized	0.015	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_62	PF03466.15	LysR substrate binding domain	84_272
+argP	b2916	ICIA_ECOLI	16130817	LysR	Exp_characterized	0.021	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	6_64	PF03466.15	LysR substrate binding domain	88_290
+ilvY	b3773	ILVY_ECOLI	16131631	LysR	Exp_characterized	0.0015	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_62	PF03466.15	LysR substrate binding domain	86_297
+leuO	b0076	LEUO_ECOLI	90111083	LysR	Exp_characterized	0.0016	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	24_82	PF03466.15	LysR substrate binding domain	116_313
+lrhA	b2289	LRHA_ECOLI	16130224	LysR	Exp_characterized	0.0019	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	13_72	PF03466.15	LysR substrate binding domain	95_288
+lysR	b2839	LYSR_ECOLI	16130743	LysR	Exp_characterized	0.0029	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	6_65	PF03466.15	LysR substrate binding domain	89_295
+metR	b3828	METR_ECOLI	16131677	LysR	Exp_characterized	0.0014	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	4_63	PF03466.15	LysR substrate binding domain	84_290
+modE	b0761	MODE_ECOLI	16128729	LysR	Exp_characterized	2.61e_06	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	19_83	PF03459.12	TOBE domain	125_189 197_258
+nac	b1988	NAC_ECOLI	16129930	LysR	Exp_characterized	0.0038	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_62	PF03466.15	LysR substrate binding domain	86_292
+nhaR	b0020	NHAR_ECOLI	16128014	LysR	Exp_characterized	0.014	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	8_67	PF03466.15	LysR substrate binding domain	92_290
+oxyR	b3961	OXYR_ECOLI	16131799	LysR	Exp_characterized	2.33e_09	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_62	PF03466.15	LysR substrate binding domain	86_294
+perR	b0254	PERR_ECOLI	16128239	LysR	Prediction	0.017	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	9_68	PF03466.15	LysR substrate binding domain	89_292
+yjiE	b4327	QSED_ECOLI	16132148	LysR	Prediction	0.01	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	13_72	PF03466.15	LysR substrate binding domain	96_299
+tdcA	b3118	TDCA_ECOLI	16131011	LysR	Exp_characterized	0.0022	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	9_68	PF03466.15	LysR substrate binding domain	92_299
+ttdR	b3060	TTDR_ECOLI	16130956	LysR	Exp_characterized	0.018	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	8_67	PF03466.15	LysR substrate binding domain	91_297
+xapR	b2405	XAPR_ECOLI	16130331	LysR	Exp_characterized	0.0018	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	9_68	PF03466.15	LysR substrate binding domain	92_294
+yafC	b0208	YAFC_ECOLI	16128195	LysR	Prediction	0.003	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	5_64	PF03466.15	LysR substrate binding domain	88_294
+yahB	b0316	YAHB_ECOLI	16128301	LysR	Prediction	0.019	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	8_66	PF03466.15	LysR substrate binding domain	90_292
+ybdO	b0603	YBDO_ECOLI	16128586	LysR	Prediction	0.0029	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	12_71	PF03466.15	LysR substrate binding domain	116_300
+ybeF	b0629	YBEF_ECOLI	90111155	LysR	Prediction	0.0073	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	31_90	PF03466.15	LysR substrate binding domain	114_317
+ybhD	b0768	YBHD_ECOLI	145698233	LysR	Prediction	0.00039	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	5_64	PF03466.15	LysR substrate binding domain	88_295
+ycaN	b0900	YCAN_ECOLI	16128867	LysR	Prediction	0.0053	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	5_64	PF03466.15	LysR substrate binding domain	88_292
+ycjZ	b1328	YCJZ_ECOLI	16129289	LysR	Prediction	0.012	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	6_65	PF03466.15	LysR substrate binding domain	89_298
+ydcI	b1422	YDCI_ECOLI	90111269	LysR	Prediction	0.0024	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	13_72	PF03466.15	LysR substrate binding domain	96_306
+ydhB	b1659	YDHB_ECOLI	16129617	LysR	Prediction	0.0079	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	5_63	PF03466.15	LysR substrate binding domain	87_292
+yeeY	b2015	YEEY_ECOLI	90111371	LysR	Prediction	0.0065	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	5_64	PF03466.15	LysR substrate binding domain	88_294
+yeiE	b2157	YEIE_ECOLI	16130095	LysR	Prediction	0.00073	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	5_64	PF03466.15	LysR substrate binding domain	84_289
+yfeR	b2409	YFER_ECOLI	16130335	LysR	Prediction	0.00066	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	5_64	PF03466.15	LysR substrate binding domain	88_294
+yfiE	b2577	YFIE_ECOLI	90111462	LysR	Prediction	0.0028	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_62	PF03466.15	LysR substrate binding domain	85_291
+ygfI	b2921	YGFI_ECOLI	90111513	LysR	Prediction	0.01	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	6_65	PF03466.15	LysR substrate binding domain	88_292
+yhaJ	b3105	YHAJ_ECOLI	16131000	LysR	Prediction	0.0063	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	9_68	PF03466.15	LysR substrate binding domain	92_293
+yhjC	b3521	YHJC_ECOLI	145698322	LysR	Prediction	0.012	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	4_63	PF03466.15	LysR substrate binding domain	87_295
+yiaU	b3585	YIAU_ECOLI	16131456	LysR	Prediction	0.016	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	8_67	PF03466.15	LysR substrate binding domain	91_305
+yidZ	b3711	YIDZ_ECOLI	16131579	LysR	Prediction	0.00069	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	10_67	PF03466.15	LysR substrate binding domain	92_316
+yneJ	b1526	YNEJ_ECOLI	16129485	LysR	Prediction	0.004	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	3_62	PF03466.15	LysR substrate binding domain	84_284
+ynfL	b1595	YNFL_ECOLI	16129553	LysR	Prediction	0.00089	PF00126.22	Bacterial regulatory helix_turn_helix protein, lysR family	5_64	PF03466.15	LysR substrate binding domain	88_297
+ascG	b2714	ASCG_ECOLI	16130621	GalR/LacI	Exp_characterized	3.27e_05	PF00356.16	Bacterial regulatory proteins, lacI family	4_49	PF13377.1	Periplasmic binding protein_like domain	172_332
+cytR	b3934	CYTR_ECOLI	16131772	GalR/LacI	Exp_characterized	4.09e_06	PF00356.16	Bacterial regulatory proteins, lacI family	11_56	PF13377.1	Periplasmic binding protein_like domain	176_337
+ebgR	b3075	EBGR_ECOLI	16130970	GalR/LacI	Prediction	0.00031	PF00356.16	Bacterial regulatory proteins, lacI family	3_50	PF13377.1	Periplasmic binding protein_like domain	166_326
+fruR	b0080	FRUR_ECOLI	16128073	GalR/LacI	Exp_characterized	0.00032	PF00356.16	Bacterial regulatory proteins, lacI family	2_50	PF13377.1	Periplasmic binding protein_like domain	171_329
+galR	b2837	GALR_ECOLI	16130741	GalR/LacI	Exp_characterized	3.7e_05	PF00356.16	Bacterial regulatory proteins, lacI family	3_48	PF13377.1	Periplasmic binding protein_like domain	168_329
+galS	b2151	GALS_ECOLI	16130089	GalR/LacI	Exp_characterized	2.73e_05	PF00356.16	Bacterial regulatory proteins, lacI family	3_48	PF13377.1	Periplasmic binding protein_like domain	168_329
+gntR	b3438	GNTR_ECOLI	49176356	GalR/LacI	Exp_characterized	3.74e_05	PF00356.16	Bacterial regulatory proteins, lacI family	7_52	PF00532.16	Periplasmic binding proteins and sugar binding domain of LacI family	63_319
+idnR	b4264	IDNR_ECOLI	16132086	GalR/LacI	Exp_characterized	6.35e_05	PF00356.16	Bacterial regulatory proteins, lacI family	7_52	PF13377.1	Periplasmic binding protein_like domain	172_332
+lacI	b0345	LACI_ECOLI	49176012	GalR/LacI	Exp_characterized	1.96e_10	PF00356.16	Bacterial regulatory proteins, lacI family	5_50	PF13377.1	Periplasmic binding protein_like domain	171_329
+malI	b1620	MALI_ECOLI	16129578	GalR/LacI	Exp_characterized	0.00022	PF00356.16	Bacterial regulatory proteins, lacI family	8_53	PF00532.16	Periplasmic binding proteins and sugar binding domain of LacI family	64_342
+purR	b1658	PURR_ECOLI	16129616	GalR/LacI	Exp_characterized	4.52e_11	PF00356.16	Bacterial regulatory proteins, lacI family	3_48	PF13377.1	Periplasmic binding protein_like domain	170_331
+rbsR	b3753	RBSR_ECOLI	16131621	GalR/LacI	Exp_characterized	5.06e_07	PF00356.16	Bacterial regulatory proteins, lacI family	3_48	PF13377.1	Periplasmic binding protein_like domain	169_330
+treR	b4241	TRER_ECOLI	16132063	GalR/LacI	Exp_characterized	2.44e_10	PF00356.16	Bacterial regulatory proteins, lacI family	6_51	PF13377.1	Periplasmic binding protein_like domain	167_315
+ycjW	b1320	YCJW_ECOLI	16129281	GalR/LacI	Prediction	4.73e_05	PF00356.16	Bacterial regulatory proteins, lacI family	4_49	PF13377.1	Periplasmic binding protein_like domain	175_331
+ada	b2213	ADA_ECOLI	16130150	AraC/XylS	Exp_characterized	1.69e_08	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	140_182	PF02870.10	6_O_methylguanine DNA methyltransferase, ribonuclease_like domain	188_266
+adiY	b4116	ADIY_ECOLI	16131942	AraC/XylS	Exp_characterized	2.1e_06	PF12833.2	Helix_turn_helix domain	168_246	PB000483 (PFam_B_483)	null	1_114
+appY	b0564	APPY_ECOLI	16128547	AraC/XylS	Exp_characterized	0.035	PF12833.2	Helix_turn_helix domain	158_236	null	null	null
+araC	b0064	ARAC_ECOLI	16128058	AraC/XylS	Exp_characterized	0.032	PF12833.2	Helix_turn_helix domain	200_279	PF02311.14	AraC_like ligand binding domain	20_160
+chbR	b1735	CHBR_ECOLI	16129689	AraC/XylS	Exp_characterized	0.091	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	181_223 234_273	PF07883.6	Cupin domain	26_90
+envY	b0566	ENVY_ECOLI	16128549	AraC/XylS	Exp_characterized	0.027	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	155_195 206_245	null	null	null
+eutR	b2437	EUTR_ECOLI	16130362	AraC/XylS	Prediction	0.049	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	249_290 301_343	null	null	null
+feaR	b1384	FEAR_ECOLI	16129345	AraC/XylS	Exp_characterized	0.011	PF12833.2	Helix_turn_helix domain	219_299	null	null	null
+gadW	b3515	GADW_ECOLI	16131387	AraC/XylS	Exp_characterized	0.014	PF12833.2	Helix_turn_helix domain	158_236	PB000800 (Pfam_B_800)	null	79_119
+gadX	b3516	GADX_ECOLI	16131388	AraC/XylS	Exp_characterized	0.032	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	151_191 204_241	null	null	null
+marA	b1531	MARA_ECOLI	90111290	AraC/XylS	Exp_characterized	0.00013	PF12833.2	Helix_turn_helix domain	31_110	null	null	null
+melR	b4118	MELR_ECOLI	16131944	AraC/XylS	Exp_characterized	0.019	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	200_241 252_291	PB000578 (Pfam_B_578)	null	7_173
+rhaR	b3906	RHAR_ECOLI	171701684	AraC/XylS	Exp_characterized		0.071	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	185_226 237_276	PF02311.14	AraC_like ligand binding domain	19_156
+rhaS	b3905	RHAS_ECOLI	16131745	AraC/XylS	Exp_characterized	0.025	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	180_221 232_271	PF02311.14	AraC_like ligand binding domain	14_154
+rob	b4396	ROB_ECOLI	16132213	AraC/XylS	Exp_characterized	1.65e_08	PF12833.2	Helix_turn_helix domain	27_106	PF06445.10	GyrI_like small molecule binding domain	126_288
+soxS	b4062	SOXS_ECOLI	16131888	AraC/XylS	Exp_characterized	0.0021	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	66_105	null	null	null
+xylR	b3569	XYLR_ECOLI	16131440	AraC/XylS	Exp_characterized	0.002	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	294_335 346_385	PF13377.1	Periplasmic binding protein_like domain	111_277
+ybcM	b0546	YBCM_ECOLI	16128529	AraC/XylS	Prediction	0.023	PF12833.2	Helix_turn_helix domain	184_262	null	null	null
+ydeO	b1499	YDEO_ECOLI	16129458	AraC/XylS	Exp_characterized	0.038	PF12833.2	Helix_turn_helix domain	156_233	null	null	null
+ydiP	b1696	YDIP_ECOLI	16129652	AraC/XylS	Prediction	0.025	PF12833.2	Helix_turn_helix domain	202_281	PF02311.14	AraC_like ligand binding domain	23_158
+yeaM	b1790	YEAM_ECOLI	16129744	AraC/XylS	Prediction	0.061	PF12833.2	Helix_turn_helix domain	180_258	PF02311.14	AraC_like ligand binding domain	19_152
+yidL	b3680	YIDL_ECOLI	226524758	AraC/XylS	Prediction	0.0049	PF12833.2	Helix_turn_helix domain	206_285	PF02311.14	AraC_like ligand binding domain	55_204
+yijO	b3954	YIJO_ECOLI	16131792	AraC/XylS	Prediction	0.031	PF00165.18	Bacterial regulatory helix_turn_helix proteins, AraC family	230_269	null	null	null
+ykgD	b0305	YKGD_ECOLI	16128290	AraC/XylS	Prediction	0.018	PF12833.2	Helix_turn_helix domain	199_278	PF12852.2	Cupin	2_162
+ypdC	b2382	YPDC_ECOLI	16130314	AraC/XylS	Prediction	0.018	PF12833.2	Helix_turn_helix domain	203_282	null	null	null
+yqhC	b3010	YQHC_ECOLI	90111526	AraC/XylS	Exp_characterized	0.03	PF12833.2	Helix_turn_helix domain	232_311	PF06719.8	AraC_type transcriptional regulator N_terminus	46_199
+csiR	b2664	CSIR_ECOLI	90111478	GntR	Exp_characterized	0.019	PF00392.16	Bacterial regulatory proteins, gntR family	6_66	PF07729.7	FCD domain	76_208
+dgoR	b4479	DGOR_ECOLI	49176392	GntR	Prediction	0.0089	PF00392.16	Bacterial regulatory proteins, gntR family	5_68	PF07729.7	FCD domain	97_220
+exuR	b3094	EXUR_ECOLI	90111537	GntR	Exp_characterized	0.018	PF00392.16	Bacterial regulatory proteins, gntR family	9_72	PF07729.7	FCD domain	96_220
+fadR	b1187	FADR_ECOLI	16129150	GntR	Exp_characterized	4.14e_08	PF00392.16	Bacterial regulatory proteins, gntR family	8_71	PF07840.7	FadR C_terminal domain	72_235
+frlR	b3375	FRLR_ECOLI	162135910	GntR	Prediction	0.00019	PF00392.16	Bacterial regulatory proteins, gntR family	12_75	PF07702.8	UTRA domain	96_235
+glcC	b2980	GLCC_ECOLI	16130880	GntR	Exp_characterized	0.02	PF00392.16	Bacterial regulatory proteins, gntR family	9_71	PF07729.7	FCD domain	96_227
+lldR	b3604	LLDR_ECOLI	16131475	GntR	Exp_characterized	0.0099	PF00392.16	Bacterial regulatory proteins, gntR family	8_71	PF07729.7	FCD domain	100_224
+yncC	b1450	MCBR_ECOLI	90111276	GntR	Exp_characterized	0.016	PF00392.16	Bacterial regulatory proteins, gntR family	12_74	PF07729.7	FCD domain	84_210
+mngR	b0730	MNGR_ECOLI	16128705	GntR	Exp_characterized	0.0021	PF00392.16	Bacterial regulatory proteins, gntR family	6_69	PF07702.8	UTRA domain	90_229
+nanR	b3226	NANR_ECOLI	49176329	GntR	Exp_characterized	0.006	PF00392.16	Bacterial regulatory proteins, gntR family	32_95	PF07729.7	FCD domain	123_247
+pdhR	b0113	PDHR_ECOLI	16128106	GntR	Exp_characterized	0.013	PF00392.16	Bacterial regulatory proteins, gntR family	11_74	PF07729.7	FCD domain	99_227
+phnF	b4102	PHNF_ECOLI	16131928	GntR	Prediction	8.35e_08	PF00392.16	Bacterial regulatory proteins, gntR family	13_75	PF07702.8	UTRA domain	96_236
+uxuR	b4324	UXUR_ECOLI	16132145	GntR	Exp_characterized	0.0028	PF00392.16	Bacterial regulatory proteins, gntR family	10_73	PF07729.7	FCD domain	97_226
+ydfH	b1540	YDFH_ECOLI	16129499	GntR	Prediction	0.019	PF00392.16	Bacterial regulatory proteins, gntR family	13_75	PF07729.7	FCD domain	87_209
+yegW	b2101	YEGW_ECOLI	16130039	GntR	Prediction	0.0019	PF00392.16	Bacterial regulatory proteins, gntR family	24_87	PF07702.8	UTRA domain	107_243
+yidP	b3684	YIDP_ECOLI	16131552	GntR	Prediction	0.0022	PF00392.16	Bacterial regulatory proteins, gntR family	2_65	PF07702.8	UTRA domain	86_225
+yieP	b3755	YIEP_ECOLI	49176401	GntR	Prediction	0.021	PF00392.16	Bacterial regulatory proteins, gntR family	14_77	PF07729.7	FCD domain	105_227
+yihL	b3872	YIHL_ECOLI	16131712	GntR	Prediction	0.013	PF00392.16	Bacterial regulatory proteins, gntR family	7_70	PF07702.8	UTRA domain	91_231
+yjiR	b4340	YJIR_ECOLI	16132161	GntR	Prediction	0.00011	PF00392.16	Bacterial regulatory proteins, gntR family	3_66	PF00155.16	Aminotransferase class I and II	106_461
+yjjM	b4357	YJJM_ECOLI	49176497	GntR	Prediction	0.02	PF00392.16	Bacterial regulatory proteins, gntR family	7_63	PF07729.7	FCD domain	159_287
+acrR	b0464	ACRR_ECOLI	16128448	TetR/AcrR	Exp_characterized	0.003	PF00440.18	Bacterial regulatory proteins, tetR family	16_62	PF08361.6	MAATS_type transcriptional repressor, C_terminal region	84_204
+betI	b0313	BETI_ECOLI	49176011	TetR/AcrR	Exp_characterized	0.014	PF00440.18	Bacterial regulatory proteins, tetR family	14_60	PF13977.1	Bacterial transcriptional repressor	67_193
+envR	b3264	ENVR_ECOLI	16131152	TetR/AcrR	Exp_characterized	0.0044	PF00440.18	Bacterial regulatory proteins, tetR family	16_62	PF08361.6	MAATS_type transcriptional repressor, C_terminal region	84_203
+fabR	b3963	FABR_ECOLI	145698338	TetR/AcrR	Exp_characterized	0.019	PF00440.18	Bacterial regulatory proteins, tetR family	15_62	null	null	null
+nemR	b1649	NEMR_ECOLI	145698269	TetR/AcrR	Exp_characterized	0.0095	PF00440.18	Bacterial regulatory proteins, tetR family	13_59	null	null	null
+rutR	b1013	RUTR_ECOLI	16128979	TetR/AcrR	Exp_characterized	2.5e_07	PF00440.18	Bacterial regulatory proteins, tetR family	23_69	PF08362.6	YcdC_like protein, C_terminal region	70_212
+slmA	b3641	SLMA_ECOLI	90111625	TetR/AcrR	Prediction	0.026	PF00440.18	Bacterial regulatory proteins, tetR family	16_62	null	null	null
+uidR	b1618	UIDR_ECOLI	16129576	TetR/AcrR	Exp_characterized	0.0057	PF00440.18	Bacterial regulatory proteins, tetR family	16_62	null	null	null
+ybiH	b0796	YBIH_ECOLI	162135896	TetR/AcrR	Prediction	5.67e_07	PF00440.18	Bacterial regulatory proteins, tetR family	17_62	PF09209.6	Domain of unknown function (DUF1956)	95_218
+ybjK	b0846	YBJK_ECOLI	16128814	TetR/AcrR	Prediction	0.0059	PF00440.18	Bacterial regulatory proteins, tetR family	13_59	PF13977.1	Bacterial transcriptional repressor	67_178
+ycfQ	b1111	YCFQ_ECOLI	90111214	TetR/AcrR	Prediction	0.002	PF00440.18	Bacterial regulatory proteins, tetR family	24_70	null	null	null
+yjdC	b4135	YJDC_ECOLI	90111689	TetR/AcrR	Prediction	0.012	PF00440.18	Bacterial regulatory proteins, tetR family	6_52	null	null	null
+yjgJ	b4251	YJGJ_ECOLI	90111712	TetR/AcrR	Prediction	0.0097	PF00440.18	Bacterial regulatory proteins, tetR family	21_67	null	null	null
+agaR	b3131	AGAR_ECOLI	16131023	DeoR	Exp_characterized	0.068	PF08220.7	DeoR_like helix_turn_helix domain	18_74	PF00455.17	DeoR C terminal sensor domain	87_248
+deoR	b0840	DEOR_ECOLI	16128808	DeoR	Exp_characterized	0.029	PF08220.7	DeoR_like helix_turn_helix domain	8_61	PF00455.17	DeoR C terminal sensor domain	73_234
+fucR	b2805	FUCR_ECOLI	16130712	DeoR	Exp_characterized	0.02	PF08220.7	DeoR_like helix_turn_helix domain	5_61	PF00455.17	DeoR C terminal sensor domain	74_234
+glpR	b3423	GLPR_ECOLI	16131297	DeoR	Exp_characterized	0.028	PF08220.7	DeoR_like helix_turn_helix domain	6_62	PF00455.17	DeoR C terminal sensor domain	72_233
+sgcR	b4300	SGCR_ECOLI	16132121	DeoR	Prediction	0.026	PF08220.7	DeoR_like helix_turn_helix domain	8_65	PF00455.17	DeoR C terminal sensor domain	77_237
+srlR	b2707	SRLR_ECOLI	16130614	DeoR	Exp_characterized	0.09	PF08220.7	DeoR_like helix_turn_helix domain	6_62	PF00455.17	DeoR C terminal sensor domain	72_233
+ulaR	b4191	ULAR_ECOLI	16132013	DeoR	Exp_characterized	0.038	PF08220.7	DeoR_like helix_turn_helix domain	6_62	PF00455.17	DeoR C terminal sensor domain	74_232
+yciT	b1284	YCIT_ECOLI	16129245	DeoR	Prediction	0.043	PF08220.7	DeoR_like helix_turn_helix domain	4_60	PF00455.17	DeoR C terminal sensor domain	67_228
+ydjF	b1770	YDJF_ECOLI	16129724	DeoR	Prediction	0.067	PF08220.7	DeoR_like helix_turn_helix domain	6_62	PF00455.17	DeoR C terminal sensor domain	74_234
+ygbI	b2735	YGBI_ECOLI	226524741	DeoR	Prediction	0.044	PF08220.7	DeoR_like helix_turn_helix domain	6_62	PF00455.17	DeoR C terminal sensor domain	73_233
+yihW	b3884	YIHW_ECOLI	90111660	DeoR	Prediction	0.026	PF08220.7	DeoR_like helix_turn_helix domain	11_67	PF00455.17	DeoR C terminal sensor domain	77_238
+arcA	b4401	ARCA_ECOLI	16132218	OmpR	Exp_characterized	1.82e_06	PF00486.23	Transcriptional regulatory protein, C terminal	156_232	PF00072.19	Response regulator receiver domain	6_115
+baeR	b2079	BAER_ECOLI	16130019	OmpR	Exp_characterized	0.00011	PF00486.23	Transcriptional regulatory protein, C terminal	156_232	PF00072.19	Response regulator receiver domain	13_122
+basR	b4113	BASR_ECOLI	16131939	OmpR	Prediction	0.00023	PF00486.23	Transcriptional regulatory protein, C terminal	145_216	PF00072.19	Response regulator receiver domain	3_113
+cadC	b4133	CADC_ECOLI	16131959	OmpR	Exp_characterized	0.0031	PF00486.23	Transcriptional regulatory protein, C terminal	24_100	PB000479 (Pfam_B_479)	null	418_510
+cpxR	b3912	CPXR_ECOLI	16131752	OmpR	Exp_characterized	8.13e_05	PF00486.23	Transcriptional regulatory protein, C terminal	152_228	PF00072.19	Response regulator receiver domain	4_112
+creB	b4398	CREB_ECOLI	16132215	OmpR	Exp_characterized	9.7e_05	PF00486.23	Transcriptional regulatory protein, C terminal	150_226	PF00072.19	Response regulator receiver domain	6_116
+cusR	b0571	CUSR_ECOLI	16128554	OmpR	Exp_characterized	8.6e_05	PF00486.23	Transcriptional regulatory protein, C terminal	146_221	PF00072.19	Response regulator receiver domain	3_113
+dcuR	b4124	DCUR_ECOLI	16131950	OmpR	Exp_characterized	0.0035	null	null	null	PF00072.19	Response regulator receiver domain	4_118
+kdpE	b0694	KDPE_ECOLI	16128670	OmpR	Exp_characterized	1.21e_06	PF00486.23	Transcriptional regulatory protein, C terminal	146_223	PF00072.19	Response regulator receiver domain	4_113
+ompR	b3405	OMPR_ECOLI	16131282	OmpR	Exp_characterized	0.00019	PF00486.23	Transcriptional regulatory protein, C terminal	156_232	PF00072.19	Response regulator receiver domain	7_117
+phoB	b0399	PHOB_ECOLI	16128384	OmpR	Exp_characterized	7.05e_07	PF00486.23	Transcriptional regulatory protein, C terminal	149_225	PF00072.19	Response regulator receiver domain	5_117
+phoP	b1130	PHOP_ECOLI	16129093	OmpR	Exp_characterized	1.04e_06	PF00486.23	Transcriptional regulatory protein, C terminal	144_220	PF00072.19	Response regulator receiver domain	3_113
+qseB	b3025	QSEB_ECOLI	16130921	OmpR	Exp_characterized	0.00029	PF00486.23	Transcriptional regulatory protein, C terminal	145_216	PF00072.19	Response regulator receiver domain	3_113
+rstA	b1608	RSTA_ECOLI	145698268	OmpR	Exp_characterized	0.00062	PF00486.23	Transcriptional regulatory protein, C terminal	157_233	PF00072.19	Response regulator receiver domain	4_113
+torR	b0995	TORR_ECOLI	16128961	OmpR	Exp_characterized	1.64e_06	PF00486.23	Transcriptional regulatory protein, C terminal	153_225	PF00072.19	Response regulator receiver domain	5_114
+yedW	b1969	YEDW_ECOLI	90111362	OmpR	Prediction	0.00024	PF00486.23	Transcriptional regulatory protein, C terminal	142_218	PF00072.19	Response regulator receiver domain	3_112
+ygeH	b2852	YGEH_ECOLI	16130756	OmpR	Prediction	0.0027	PF00486.23	Transcriptional regulatory protein, C terminal	26_101	null	null	null
+yqeI	b2847	YQEI_ECOLI	16130751	OmpR	Prediction	0.024	PF00486.23	Transcriptional regulatory protein, C terminal	23_103	PB000773 (PFam_B_773)	null	181_263
+bglJ	b4366	BGLJ_ECOLI	145698349	LuxR/UhpA	Exp_characterized	0.0018	PF00196.14	Bacterial regulatory proteins, luxR family	100_157	null	null	null
+csgD	b1040	CSGD_ECOLI	16129003	LuxR/UhpA	Exp_characterized	0.0026	PF00196.14	Bacterial regulatory proteins, luxR family	153_210	null	null	null
+dctR	b3507	DCTR_ECOLI	16129152	LuxR/UhpA	Prediction	0.01	PF00196.14	Bacterial regulatory proteins, luxR family	113_170	null	null	null
+evgA	b2369	EVGA_ECOLI	16130301	LuxR/UhpA	Exp_characterized	0.0022	PF00196.14	Bacterial regulatory proteins, luxR family	141_198	PF00072.19	Response regulator receiver domain	3_114
+fimZ	b0535	FIMZ_ECOLI	16128519	LuxR/UhpA	Prediction	0.0035	PF00196.14	Bacterial regulatory proteins, luxR family	147_204	PF00072.19	Response regulator receiver domain	6_118
+gadE	b3512	GADE_ECOLI	16131384	LuxR/UhpA	Exp_characterized	0.0094	PF00196.14	Bacterial regulatory proteins, luxR family	115_169	null	null	null
+malT	b3418	MALT_ECOLI	16131294	LuxR/UhpA	Exp_characterized	2.11e_12	PF00196.14	Bacterial regulatory proteins, luxR family	833_890	null	null	null
+matA	b0294	MATA_ECOLI	16128279	LuxR/UhpA	Prediction	0.01	PF00196.14	Bacterial regulatory proteins, luxR family	142_190	null	null	null
+narL	b1221	NARL_ECOLI	16129184	LuxR/UhpA	Exp_characterized	6.9e_07	PF00196.14	Bacterial regulatory proteins, luxR family	153_210	PF00072.19	Response regulator receiver domain	9_121
+narP	b2193	NARP_ECOLI	16130130	LuxR/UhpA	Exp_characterized	7.76e_05	PF00196.14	Bacterial regulatory proteins, luxR family	151_208	PF00072.19	Response regulator receiver domain	9_121
+rcsA	b1951	RCSA_ECOLI	16129898	LuxR/UhpA	Exp_characterized	0.011	PF00196.14	Bacterial regulatory proteins, luxR family	135_192	null	null	null
+rcsB	b2217	RCSB_ECOLI	16130154	LuxR/UhpA	Exp_characterized	0.0029	PF00196.14	Bacterial regulatory proteins, luxR family	148_205	PF00072.19	Response regulator receiver domain	6_121
+sdiA	b1916	SDIA_ECOLI	16129863	LuxR/UhpA	Exp_characterized	0.0042	PF00196.14	Bacterial regulatory proteins, luxR family	177_234	PF03472.10	Autoinducer binding domain	22_165
+uhpA	b3669	UHPA_ECOLI	16131539	LuxR/UhpA	Exp_characterized	0.001	PF00196.14	Bacterial regulatory proteins, luxR family	135_192	PF00072.19	Response regulator receiver domain	4_113
+uvrY	b1914	UVRY_ECOLI	16129861	LuxR/UhpA	Prediction	0.0017	PF00196.14	Bacterial regulatory proteins, luxR family	147_204	PF00072.19	Response regulator receiver domain	4_116
+yahA	b0315	YAHA_ECOLI	16128300	LuxR/UhpA	Prediction	0.0016	PF00196.14	Bacterial regulatory proteins, luxR family	23_77	PF00563.15	EAL domain	111_346
+yhjB	b3520	YHJB_ECOLI	16131392	LuxR/UhpA	Prediction	0.003	PF00196.14	Bacterial regulatory proteins, luxR family	139_196	null	null	null
+yjjQ	b4365	YJJQ_ECOLI	16132186	LuxR/UhpA	Prediction	0.0043	PF00196.14	Bacterial regulatory proteins, luxR family	152_208	null	null	null
+yqeH	b2846	YQEH_ECOLI	90111495	LuxR/UhpA	Prediction	0.04	PF00196.14	Bacterial regulatory proteins, luxR family	149_197	null	null	null
+atoC	b2220	ATOC_ECOLI	16130157	EBP	Exp_characterized	5.06e_07	null	null	null	PF00072.19	Response regulator receiver domain	7_117
+dhaR	b1201	DHAR_ECOLI	90111234	EBP	Exp_characterized	4.85e_05	PF01590.21	GAF domain	53_189	PF00989.19	PAS fold	203_306
+fhlA	b2731	FHLA_ECOLI	16130638	EBP	Exp_characterized	1.61e_06	null	null	null	PF01590.21	GAF domain	202_344
+fis	b3261	FIS_ECOLI	16131149	EBP	Exp_characterized	4.84e_06	null	null	null	null	null	null
+hyfR	b2491	HYFR_ECOLI	90111447	EBP	Exp_characterized	6.28e_07	PB001956 (Pfam_B_1956)	null	1_89	PF01590.21	GAF domain	169_311
+norR	b2709	NORR_ECOLI	90111481	EBP	Exp_characterized	1.78e_06	null	null	null	PF01590.21	GAF domain	21_157
+glnG	b3868	NTRC_ECOLI	16131708	EBP	Exp_characterized	7.67e_07	null	null	null	PF00072.19	Response regulator receiver domain	6_116
+prpR	b0330	PRPR_ECOLI	16128315	EBP	Exp_characterized	2.4e_06	null	null	null	PF06506.6	Propionate catabolism activator	28_202
+pspF	b1303	PSPF_ECOLI	90111246	EBP	Exp_characterized	2.09e_06	null	null	null	null	null	null
+rtcR	b3422	RTCR_ECOLI	16131296	EBP	Exp_characterized	1.91e_05	null	null	null	PF06956.6	Regulator of RNA terminal phosphate cyclase	1_185
+tyrR	b1323	TYRR_ECOLI	16129284	EBP	Exp_characterized	2.54e_06	null	null	null	PF13188.1	PAS domain	81_148
+glrR	b2554	YFHA_ECOLI	16130479	EBP	Exp_characterized	1.43e_06	null	null	null	PF00072.19	Response regulator receiver domain	8_118
+ygeV	b2869	YGEV_ECOLI	16130771	EBP	Prediction	1.46e_06	null	null	null	PF13188.1	PAS domain	160_223
+zraR	b4004	ZRAR_ECOLI	16131834	EBP	Exp_characterized	6.45e_07	null	null	null	PF00072.19	Response regulator receiver domain	8_118
+allR	b0506	ALLR_ECOLI	16128490	IclR	Exp_characterized	3.29e_08	PF09339.5	IclR helix_turn_helix domain	23_74	PF01614.13	Bacterial transcriptional regulator	139_264
+iclR	b4018	ICLR_ECOLI	90111675	IclR	Exp_characterized	1.69e_08	PF09339.5	IclR helix_turn_helix domain	26_77	PF01614.13	Bacterial transcriptional regulator	143_269
+kdgR	b1827	KDGR_ECOLI	16129781	IclR	Exp_characterized	3.96e_05	PF09339.5	IclR helix_turn_helix domain	15_65	PF01614.13	Bacterial transcriptional regulator	128_255
+mhpR	b0346	MHPR_ECOLI	145698223	IclR	Exp_characterized	0.0046	PF09339.5	IclR helix_turn_helix domain	14_65	PF01614.13	Bacterial transcriptional regulator	129_259
+yfaX	b2248	RHMR_ECOLI	16130183	IclR	Prediction	0.00015	PF09339.5	IclR helix_turn_helix domain	9_59	PF01614.13	Bacterial transcriptional regulator	121_248
+yagI	b0272	YAGI_ECOLI	16128257	IclR	Prediction	5.08e_05	PF09339.5	IclR helix_turn_helix domain	6_57	PF01614.13	Bacterial transcriptional regulator	120_247
+yiaJ	b3574	YIAJ_ECOLI	16131445	IclR	Exp_characterized	0.00025	PF09339.5	IclR helix_turn_helix domain	25_76	PF01614.13	Bacterial transcriptional regulator	142_269
+yjhI	b4299	YJHI_ECOLI	16132120	IclR	Prediction	4.74e_05	null	null	null	PF01614.13	Bacterial transcriptional regulator	121_248
+cspA	b3556	CSPA_ECOLI	16131427	Cold	Exp_characterized	1.47e_05	PF00313.17	'Cold_shock' DNA_binding domain	5_70	null	null	null
+cspB	b1557	CSPB_ECOLI	16129516	Cold	Prediction	3.86e_05	PF00313.17	'Cold_shock' DNA_binding domain	5_70	null	null	null
+cspC	b1823	CSPC_ECOLI	16129777	Cold	Prediction	8.29e_05	PF00313.17	'Cold_shock' DNA_binding domain	4_69	null	null	null
+cspD	b0880	CSPD_ECOLI	16128848	Cold	Prediction	0.00024	PF00313.17	'Cold_shock' DNA_binding domain	2_67	null	null	null
+cspE	b0623	CSPE_ECOLI	16128606	Cold	Prediction	7.84e_05	PF00313.17	'Cold_shock' DNA_binding domain	4_69	null	null	null
+cspF	b1558	CSPF_ECOLI	16129517	Cold	Prediction	0.00082	PF00313.17	'Cold_shock' DNA_binding domain	5_70	null	null	null
+cspG	b0990	CSPG_ECOLI	16128956	Cold	Prediction	5.47e_05	PF00313.17	'Cold_shock' DNA_binding domain	5_70	null	null	null
+cspH	b0989	CSPH_ECOLI	16128955	Cold	Prediction	0.00077	PF00313.17	'Cold_shock' DNA_binding domain	5_70	null	null	null
+cspI	b1552	CSPI_ECOLI	16129511	Cold	Prediction	8.14e_05	PF00313.17	'Cold_shock' DNA_binding domain	5_70	null	null	null
+dicA	b1570	DICA_ECOLI	16129529	HTH_3	Exp_characterized	0.00099	PF01381.17	Helix_turn_helix	12_66	null	null	null
+ydcQ	b1438	HICB_ECOLI	145698257	HTH_3	_	_	0.068	PF01381.17	Helix_turn_helix	82_136	PF03681.10	Uncharacterised protein family (UPF0150)	2_49
+hipB	b1508	HIPB_ECOLI	16129467	HTH_3	Exp_characterized	0.065	PF01381.17	Helix_turn_helix	17_70	null	null	null
+nadR	b4390	NADR_ECOLI	90111746	HTH_3	Exp_characterized	1.75e_06	PF01381.17	Helix_turn_helix	7_61	PF13521.1	AAA domain	233_394
+puuR	b1299	PUUR_ECOLI	16129260	HTH_3	Prediction	0.044	PF01381.17	Helix_turn_helix	12_66	PF07883.6	Cupin domain	110_180
+rodZ	b2516	RODZ_ECOLI	16130441	HTH_3	Prediction	0.043	PF01381.17	Helix_turn_helix	19_57	PF13464.1	Domain of unknown function (DUF4115)	255_330
+ybaQ	b0483	YBAQ_ECOLI	90111140	HTH_3	Prediction	0.0042	PF01381.17	Helix_turn_helix	16_70	null	null	null
+ydaS	b1357	YDAS_ECOLI	16129318	HTH_3	Prediction	0.027	PF01381.17	Helix_turn_helix	18_57	null	null	null
+ydcN	b1434	YDCN_ECOLI	16129393	HTH_3	Prediction	0.0039	PF01381.17	Helix_turn_helix	12_66	PF07883.6	Cupin domain	102_173
+yddM	b1477	YDDM_ECOLI	145698261	HTH_3	Prediction	1.99e_05	PF01381.17	Helix_turn_helix	13_67	null	null	null
+yiaG	b3555	YIAG_ECOLI	16131426	HTH_3	_	_	0.03	PF01381.17	Helix_turn_helix	38_82	null	null	null
+cueR	b0487	CUER_ECOLI	16128471	MerR	Exp_characterized	4.66e_07	PF00376.18	MerR family regulatory protein	2_39	PF09278.6	MerR, DNA binding	44_108
+mlrA	b2127	MLRA_ECOLI	16130065	MerR	Exp_characterized	0.0076	PF13411.1	MerR HTH family regulatory protein	4_73	null	null	null
+soxR	b4063	SOXR_ECOLI	16131889	MerR	Exp_characterized	0.002	PF00376.18	MerR family regulatory protein	13_49	PF09278.6	MerR, DNA binding	54_119
+ycgE	b1162	YCGE_ECOLI	16129125	MerR	Prediction	0.022	PF13411.1	MerR HTH family regulatory protein	4_73	null	null	null
+zntR	b3292	ZNTR_ECOLI	16131171	MerR	Exp_characterized	1.31e_05	PF00376.18	MerR family regulatory protein	3_40	PF09278.6	MerR, DNA binding	45_110
+marR	b1530	MARR_ECOLI	90111289	MarR	Exp_characterized	3.41e_07	PF01047.17	MarR family	38_96	null	null	null
+mprA	b2684	MPRA_ECOLI	16130596	MarR	Exp_characterized	0.0049	PF01047.17	MarR family	53_113	null	null	null
+nagC	b0676	NAGC_ECOLI	16128652	MarR	Exp_characterized	4.92e_06	PF01047.17	MarR family	18_67	PF00480.15	ROK family	90_274
+slyA	b1642	SLYA_ECOLI	90111310	MarR	Exp_characterized	1.14e_06	PF01047.17	MarR family	29_88	null	null	null
+yebK	b1853	HEXR_ECOLI	16129806	RpiR	Prediction	0.011	PF01418.12	Helix_turn_helix domain, rpiR family	1_77	PF01380.17	SIS domain	124_253
+murR	b2427	MURR_ECOLI	16130352	RpiR	Exp_characterized	0.0083	PF01418.12	Helix_turn_helix domain, rpiR family	1_77	PF01380.17	SIS domain	131_261
+rpiR	b4089	RPIR_ECOLI	90111685	RpiR	Exp_characterized	0.088	PF01418.12	Helix_turn_helix domain, rpiR family	14_90	PF01380.17	SIS domain	137_267
+yfhH	b2561	YFHH_ECOLI	90111460	RpiR	Prediction	0.0054	PF01418.12	Helix_turn_helix domain, rpiR family	1_77	PF01380.17	SIS domain	128_258
+mak	b0394	MAK_ECOLI	90111128	ROK	Exp_characterized	8.89e_09	PF00480.15	ROK family	4_193	null	null	null
+dgsA	b1594	MLC_ECOLI	16129552	ROK	Exp_characterized	0.00014	PF00480.15	ROK family	89_274	null	null	null
+yphH	b2550	YPHH_ECOLI	90111457	ROK			0.00074	PF00480.15	ROK family	85_267	null	null	null
+asnC	b3743	ASNC_ECOLI	16131611	AsnC	Exp_characterized	7.88e_06	PF13404.1	AsnC_type helix_turn_helix domain	6_47	PF01037.16	AsnC family	72_144
+lrp	b0889	LRP_ECOLI	16128856	AsnC	Exp_characterized	0.0056	PF13412.1	Winged helix_turn_helix DNA_binding	12_59	PF01037.16	AsnC family	78_152
+ybaO	b0447	YBAO_ECOLI	90111137	AsnC	Prediction	0.0039	PF13404.1	AsnC_type helix_turn_helix domain	2_43	PF01037.16	AsnC family	68_142
+ihfA	b1712	IHFA_ECOLI	16129668	IHF	Exp_characterized	2.73e_06	PF00216.16	Bacterial DNA_binding protein	3_92	null	null	null
+ihfB	b0912	IHFB_ECOLI	16128879	IHF	Exp_characterized	2.46e_06	PF00216.16	Bacterial DNA_binding protein	1_91	null	null	null
+lsrR	b1512	LSRR_ECOLI	16129471	Sugar_binding domain	Exp_characterized	0.0002	PF04198.8	Putative sugar_binding domain	66_316	null	null	null
+yjhU	b4295	YJHU_ECOLI	90111724	Sugar_binding domain	Prediction	0.00023	PF04198.8	Putative sugar_binding domain	63_323	null	null	null
+hns	b1237	HNS_ECOLI	16129198	HNS	Exp_characterized	6.48e_05	PF00816.16	H_NS histone family	24_130	null	null	null
+stpA	b2669	STPA_ECOLI	16130583	HNS	Exp_characterized	0.00054	PF00816.16	H_NS histone family	24_129	null	null	null
+hipA	b1507	HIPA_ECOLI	16129466	HipA	Exp_characterized	null	PF07805.7	HipA_like N_terminal domain	150_238	PF07804.7	HipA_like C_terminal domain	249_332
+yjjJ	b4385	YJJJ_ECOLI	16132202	HipA	Prediction	null	PF07805.7	HipA_like N_terminal domain	201_281	PF07804.7	HipA_like C_terminal domain	287_364
+flhC	b1891	FLHC_ECOLI	16129843	FlhC_like	Exp_characterized	2.62e_08	PF05280.6	Flagellar transcriptional activator (FlhC)	1_176	null	null	null
+flhD	b1892	FLHD_ECOLI	145698279	FlhD_like	Exp_characterized	1.86e_06	PF05247.8	Flagellar transcriptional activator (FlhD)	1_104	null	null	null
+iscR	b2531	ISCR_ECOLI	16130456	Rrf2	Exp_characterized	0.052	PF02082.15	Transcriptional regulator	1_83	null	null	null
+nsrR	b4178	NSRR_ECOLI	16132000	Rrf2	Exp_characterized	0.077	PF02082.15	Transcriptional regulator	1_83	null	null	null
+nikR	b3481	NIKR_ECOLI	16131353	CopG	Exp_characterized	6.42e_06	PF01402.16	Ribbon_helix_helix protein, copG family	3_42	PF08753.6	NikR C terminal nickel binding domain	53_131
+ybfE	b0685	YBFE_ECOLI	90111159	CopG	Prediction	0.034	PF01402.16	Ribbon_helix_helix protein, copG family	52_90	null	null	null
+arsR	b3501	ARSR_ECOLI	16131373	ArsR	Exp_characterized	0.008	PF01022.15	Bacterial regulatory protein, arsR family	15_62	null	null	null
+ygaV	b2667	YGAV_ECOLI	16130581	ArsR	Prediction	0.026	PF01022.15	Bacterial regulatory protein, arsR family	23_70	null	null	null
+crp	b3357	CRP_ECOLI	16131236	CRP	Exp_characterized	5.33e_07	PF00325.15	Bacterial regulatory proteins, crp family	166_197	PF00027.24	Cyclic nucleotide_binding domain	21_112
+fnr	b1334	FNR_ECOLI	16129295	CRP	Exp_characterized	0.0071	PF00325.15	Bacterial regulatory proteins, crp family	193_224	PF00027.24	Cyclic nucleotide_binding domain	49_138
+chpS	b4224	CHPS_ECOLI	90111708	MazE	Prediction	0.0075	PF04014.13	Antidote_toxin recognition MazE	6_51	null	null	null
+mazE	b2783	MAZE_ECOLI	16130690	MazE	Prediction	2.24e_05	PF04014.13	Antidote_toxin recognition MazE	7_52	null	null	null										
+cnu	b1625	CNU_ECOLI	16129583	HHA	Prediction	0.00054	PF05321.6	Haemolysin expression modulating protein	8_68	null	null	null
+hha	b0460	HHA_ECOLI	16128444	HHA		Prediction	1.13e_05	PF05321.6	Haemolysin expression modulating protein	13_69	null	null	null										
+mtlR	b3601	MTLR_ECOLI	16131472	MtlR	Exp_characterized	2.2e_05	PF05068.7	Mannitol repressor	2_189	null	null	null
+yggD	b2929	YGGD_ECOLI	16130830	MtlR	Prediction	2.52e_08	PF05068.7	Mannitol repressor	1_169	null	null	null											
+yefM	b2017	YEFM_ECOLI	90111372	YefM	Exp_characterized	6.71e_06	PF02604.14	Antitoxin Phd_YefM, type II toxin_antitoxin system	1_74	null	null	null
+yafN	b0232	YAFN_ECOLI	16128218	YefM		Prediction	0.012	PF02604.14	Antitoxin Phd_YefM, type II toxin_antitoxin system	7_79	null	null	null											
+hupA	b4000	DBHA_ECOLI	16131830	IHF	Exp_characterized	4.01e_06	PF00216.16	Bacterial DNA_binding protein	1_90	null	null	null
+hupB	b0440	DBHB_ECOLI	16128425	IHF	Exp_characterized	4.19e_06	PF00216.16	Bacterial DNA_binding protein	1_90	null	null	null												
+fur	b0683	FUR_ECOLI	16128659	Fur	Exp_characterized	1.58e_05	PF01475.14	Ferric uptake regulator family	10_130	null	null	null
+zur	b4046	ZUR_ECOLI	90111679	Fur	Exp_characterized	0.045	PF01475.14	Ferric uptake regulator family	19_140	null	null	null												
+aidB	b4187	AIDB_ECOLI	162135915	AidB_like	Exp_characterized	0.0037	PF02770.14	Acyl_CoA dehydrogenase, middle domain	181_233	PF00441.19	Acyl_CoA dehydrogenase, C_terminal domain	285_440
+alpA	b2624	ALPA_ECOLI	16130542	AlpA	Exp_characterized	null	PF05930.7	Prophage CP4_57 regulatory protein (AlpA)	7_63	null	null	null
+pepA	b4260	AMPA_ECOLI	16132082	Aminopeptidase	Exp_characterized	1.17e_11	PF00883.16	Cytosol aminopeptidase family, catalytic domain	184_491	PF02789.12	Cytosol aminopeptidase family, N_terminal domain	19_147
+argR	b3237	ARGR_ECOLI	16131127	ArgR	Exp_characterized	2.59e_05	PF01316.16	Arginine repressor, DNA binding domain	5_75	PF02863.13	Arginine repressor, C_terminal domain	81_151
+birA	b3973	BIRA_ECOLI	16131807	BirA	Exp_characterized	5.87e_09	PF08279.7	HTH domain	8_59	PF03099.14	Biotin/lipoate A/B protein ligase family	83_208
+bolA	b0435	BOLA_ECOLI	90111135	BolA	Exp_characterized	0.0012	PF01722.13	BolA_like protein	9_85	null	null	null
+caiF	b0034	CAIF_ECOLI	90111079	CaiF	Exp_characterized	null	PF07180.6	Protein of unknown function (DUF1401)	2_98	null	null	null
+cdaR	b0162	CDAR_ECOLI	90111093	Cdar	Exp_characterized	null	PF13556.1	PucR C_terminal helix_turn_helix domain	323_381	PF05651.8	Putative sugar diacid recognition	6_140
+crl	b0240	CRL_ECOLI	16128226	Crl	Prediction	null	PF07417.7	Transcriptional regulator Crl	2_131	null	null	null
+dicC	b1569	DICC_ECOLI	16129528	DicC	Prediction	0.0083	PB000114 (Pfam_B_114)	null	32_73	null	null	null
+dnaA	b3702	DNAA_ECOLI	16131570	DnaA	Exp_characterized	7.21e_06	PF11638.3	DnaA N_terminal domain	3_65	PF00308.13	Bacterial dnaA protein	132_350
+dpiA	b0620	DPIA_ECOLI	16128603	HTH_11	Exp_characterized	0.0037	PF12431.3	Transcriptional regulator	134_162	PF00072.19	Response regulator receiver domain	7_119
+frvR	b3897	FRVR_ECOLI	16131737	FrvR	Prediction	0.0071	PF00359.17	Phosphoenolpyruvate_dependent sugar phosphotransferase system, EIIA 2	447_581	PF08279.7	HTH domain	5_60
+gutM	b2706	GUTM_ECOLI	16130613	GutM	Exp_characterized	null	PF06923.6	Glucitol operon activator protein (GutM)	2_110	null	null	null
+higA	b3082	HIGA_ECOLI	16130977	SinR	Prediction	0.024	PF12844.2	Helix_turn_helix domain	82_138	null	null	null
+hycA	b2725	HYCA_ECOLI	16130632	HycA	Prediction	null	PF11046.3	Transcriptional repressor of hyc and hyp operons	1_149	null	null	null
+lexA	b4043	LEXA_ECOLI	16131869	LexA	Exp_characterized	5.25e_07	PF00717.18	Peptidase S24_like	114_182	PF01726.11	LexA DNA binding domain	1_65
+metJ	b3938	METJ_ECOLI	16131776	MetJ	Exp_characterized	1.63e_06	PF01340.15	Met Apo_repressor, MetJ	2_105	null	null	null
+mntR	b0817	MNTR_ECOLI	16128785	DtxR	Exp_characterized	0.0015	PF01325.14	Iron dependent repressor, N_terminal DNA binding domain	35_92	PF02742.10	Iron dependent repressor, metal binding and dimerisation domain	95_154
+mqsA	b3021	MQSA_ECOLI	16130917	CxxCG_CxxCG_HTH	Exp_characterized	0.056	PB000982 (Pfam_B_982)	null	78_107	null	null	null
+mqsR	b3022	MQSR_ECOLI	16130918	MqsR	Exp_characterized	null	PB002110 (Pfam_B_2110)	null	25_95	null	null	null
+nrdR	b0413	NRDR_ECOLI	16128398	NrdR	Exp_characterized	null	PF03477.11	ATP cone domain	49_137	null	null	null
+yeiL	b2163	NSR_ECOLI	49176193	Cyclic nucleotide_binding domain	Exp_characterized	null	PF00027.24	Cyclic nucleotide_binding domain	20_109			null
+ogrK	b2082	OGRK_ECOLI	16130022	OgrK	Prediction	null	PF04606.7	Ogr/Delta_like zinc finger	3_49	null	null	null
+paaX	b1399	PAAX_ECOLI	16129360	PaaX	Exp_characterized	0.088	PF08223.6	PaaX_like protein C_terminal domain	104_274	PF07848.7	PaaX_like protein	18_87
+pspC	b1306	PSPC_ECOLI	16129267	PspC	Prediction	null	PF04024.7	PspC domain	7_69	null	null	null
+putA	b1014	PUTA_ECOLI	16128980	PutA	Exp_characterized	2.21e_07	PF01619.13	Proline dehydrogenase	228_574	PF00171.17	Aldehyde dehydrogenase family	654_1111
+rcnR	b2105	RCNR_ECOLI	16130043	RcnR_FrmR_like_DUF156	Exp_characterized	null	PF02583.12	Metal_sensitive transcriptional repressor	5_88	null	null	null
+relB	b1564	RELB_ECOLI	16129523	RelB	Exp_characterized	null	PF04221.7	RelB antitoxin	1_79	null	null	null
+relE	b1563	RELE_ECOLI	16129522	RelE	Exp_characterized	0.062	PF05016.9	Plasmid stabilisation system protein	5_85	null	null	null
+sfsA	b0146	SFSA_ECOLI	16128139	SfsA	Prediction	null	PF03749.8	Sugar fermentation stimulation protein	13_231	null	null	null
+sfsB	b3188	SFSB_ECOLI	16131078	Nlp	Prediction	0.00042	PF13693.1	Winged helix_turn_helix DNA_binding	7_85	null	null	null
+sgrR	b0069	SGRR_ECOLI	16128063	MarR	Exp_characterized	0.08	PF00496.17	Bacterial extracellular solute_binding proteins, family 5 Middle	163_502	PF12793.2	Sugar transport_related sRNA regulator N_term	5_118
+alaS	b2697	SYA_ECOLI	16130604	Class II aminoacyl_tRNA synthetase	Exp_characterized	2.57e_08	PF07973.9	Threonyl and Alanyl tRNA synthetase second additional domain	653_696	PF01411.14	tRNA synthetases class II (A)	7_556
+tdcR	b3119	TDCR_ECOLI	162135908	TdcR	Exp_characterized	null	PB001304 (PFam_B_1304)	null	1_70	null	null	null
+trpR	b4393	TRPR_ECOLI	16132210	TrpR	Exp_characterized	2.31e_06	PF01371.14	Trp repressor protein	17_104	null	null	null
+ybiI	b0803	YBII_ECOLI	16128771	DksA	Prediction	0.038	PF01258.12	Prokaryotic dksA/traR C4_type zinc finger	31_69	null	null	null
+ybcL	b0927	YCBL_ECOLI	16128894	Metallo_beta	Prediction	0.013	PF00753.22	Metallo_beta_lactamase superfamily	8_192	null	null	null
+ydcR	b1439	YDCR_ECOLI	16129398	GntR	Prediction	0.00014	PF00155.16	Aminotransferase class I and II	120_458	PF00392.16	Bacterial regulatory proteins, gntR family	3_66
+ppsR	b1703	YDIA_ECOLI	16129659	Kinase_PPPase	Prediction	0.0094	PF03618.9	Kinase/pyrophosphorylase	9_267	null	null	null
+yehT	b2125	YEHT_ECOLI	90111392	LytTR	Prediction	0.0022	PF04397.10	LytTr DNA_binding domain	143_238	PF00072.19	Response regulator receiver domain	4_113
+yeiI	b2160	YEII_ECOLI	16130098	Kinase	Prediction	0.0014	PF13412.1	Winged helix_turn_helix DNA_binding	1_48	PF00294.19	pfkB family carbohydrate kinase	57_352
+ymfL	b1147	YMFL_ECOLI	145698241	YmfL	Prediction	null	PB000452 (Pfam_B_452)	null	13_172	null	null	null
+yoeB	b4539	YOEB_ECOLI	94541116	YoeB/Txe_like	Exp_characterized	6.6e_06	PF06769.8	Plasmid encoded toxin Txe	5_84	null	null	null
+yqjI	b3071	YQJI_ECOLI	16130966	PadR	Exp_characterized	0.067	PF03551.9	Transcriptional regulator PadR_like family	67_137	null	null	null
+ytfH	b4212	YTFH_ECOLI	90111706	HxlR_like	Prediction	3.58e_06	PF01638.12	HxlR_like helix_turn_helix	28_118	null	null	null
